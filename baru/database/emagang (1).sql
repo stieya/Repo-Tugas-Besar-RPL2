@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 17, 2014 at 01:50 AM
+-- Generation Time: Jun 17, 2014 at 11:00 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -59,15 +59,26 @@ CREATE TABLE IF NOT EXISTS `t_job_list` (
 
 CREATE TABLE IF NOT EXISTS `t_job_sheet` (
   `id_job_sheet` int(11) NOT NULL AUTO_INCREMENT,
-  `id_perusahaan` int(11) DEFAULT NULL,
+  `id_perusahaan` int(11) NOT NULL,
   `nama_job_sheet` varchar(100) DEFAULT NULL,
   `deskripsi_job_sheet` text,
   `tanggal_posting` datetime DEFAULT NULL,
   `tanggal_akhir` datetime DEFAULT NULL,
-  `status` enum('1','0') DEFAULT NULL,
+  `status` enum('Ongoing','Finished','Unclaimed','Hidden') DEFAULT NULL,
   `durasi` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_job_sheet`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `t_job_sheet`
+--
+
+INSERT INTO `t_job_sheet` (`id_job_sheet`, `id_perusahaan`, `nama_job_sheet`, `deskripsi_job_sheet`, `tanggal_posting`, `tanggal_akhir`, `status`, `durasi`) VALUES
+(4, 1, 'Bikin Lemper Panjannnnnnnnng 2', 'Deskripsi Job Sheet Deskripsi Job Sheet Deskripsi Job Sheet Deskripsi Job Sheet Deskripsi Job Sheet Deskripsi Job Sheet', '2014-06-17 04:02:01', NULL, 'Unclaimed', 1),
+(3, 1, 'Bikin Lemper Panjannnnnnnnng', 'Deskripsi Job Sheet Deskripsi Job Sheet Deskripsi Job Sheet Deskripsi Job Sheet Deskripsi Job Sheet Deskripsi Job Sheet Deskripsi Job Sheet Deskripsi Job Sheet Deskripsi Job Sheet Deskripsi Job Sheet', '2014-06-17 03:59:54', NULL, 'Unclaimed', 1),
+(5, 1, 'Bikin Lemper Panjannnnnnnnng 3', 'Deskripsi Job Sheet Deskripsi Job Sheet Deskripsi Job Sheet Deskripsi Job Sheet Deskripsi Job Sheet Deskripsi Job Sheet Deskripsi Job Sheet Deskripsi Job Sheet Deskripsi Job Sheet', '2014-06-17 04:02:45', NULL, 'Unclaimed', 1),
+(6, 5, 'Bikin Lemper Panjannnnnnnnng', 'Deskripsi Job Sheet Deskripsi Job Sheet  Deskripsi Job Sheet', '2014-06-17 04:21:01', NULL, 'Unclaimed', 1),
+(7, 0, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -164,14 +175,16 @@ CREATE TABLE IF NOT EXISTS `t_perusahaan` (
   `id_user` int(11) NOT NULL,
   `website` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_perusahaan`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `t_perusahaan`
 --
 
 INSERT INTO `t_perusahaan` (`id_perusahaan`, `nama`, `alamat`, `id_kota`, `kode_pos`, `telepon`, `id_user`, `website`) VALUES
-(1, 'ismail zakky', 'asd', NULL, '14045', '080989999', 1, NULL);
+(1, 'ismail zakky', 'asd', NULL, '14045', '080989999', 1, NULL),
+(6, 'Perusahaan B', 'asdasdasdsad', NULL, '140455', '080989999', 6, NULL),
+(5, 'Perusahaan B', 'asdasdasdsad', NULL, '140455', '080989999', 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -272,14 +285,16 @@ CREATE TABLE IF NOT EXISTS `t_user` (
   `last_login` datetime DEFAULT NULL,
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `unique` (`email`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `t_user`
 --
 
 INSERT INTO `t_user` (`id_user`, `email`, `password`, `foto_user`, `status_user`, `tanggal_masuk`, `last_login`) VALUES
-(1, 'ismailzakky@yahoo.com', '464899eb40f5da004c283b854a76146f', NULL, 'COMPANY', '2014-06-16 15:13:32', NULL);
+(1, 'ismailzakky@yahoo.com', '464899eb40f5da004c283b854a76146f', NULL, 'COMPANY', '2014-06-16 15:13:32', NULL),
+(6, 'ismailzakky2@yahoo.com', '24de4b0074f620f824a8f24de7747eb8', NULL, 'COMPANY', '2014-06-17 06:12:25', NULL),
+(5, 'ismailzakky@gmail.com', '24de4b0074f620f824a8f24de7747eb8', NULL, 'COMPANY', '2014-06-17 04:19:34', NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
