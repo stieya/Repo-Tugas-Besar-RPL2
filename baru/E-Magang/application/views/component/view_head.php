@@ -10,27 +10,27 @@
 	
 
 	<!-- Bootstrap -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/bootstrap.min.css">
 	<!-- Bootstrap responsive -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/bootstrap-responsive.min.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/bootstrap-responsive.min.css">
 	<!-- jQuery UI -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/plugins/jquery-ui/smoothness/jquery-ui.css">
-	<link rel="stylesheet" href="<?= site_url(); ?>css/plugins/jquery-ui/smoothness/jquery.ui.theme.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/plugins/jquery-ui/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/plugins/jquery-ui/smoothness/jquery.ui.theme.css">
 	<!-- PageGuide -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/plugins/pageguide/pageguide.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/plugins/pageguide/pageguide.css">
 	<!-- Fullcalendar -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/plugins/fullcalendar/fullcalendar.css">
-	<link rel="stylesheet" href="<?= site_url(); ?>css/plugins/fullcalendar/fullcalendar.print.css" media="print">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/plugins/fullcalendar/fullcalendar.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/plugins/fullcalendar/fullcalendar.print.css" media="print">
 	<!-- chosen -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/plugins/chosen/chosen.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/plugins/chosen/chosen.css">
 	<!-- select2 -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/plugins/select2/select2.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/plugins/select2/select2.css">
 	<!-- icheck -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/plugins/icheck/all.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/plugins/icheck/all.css">
 	<!-- Theme CSS -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/style.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/style.css">
 	<!-- Color CSS -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/themes.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/themes.css">
 
 
 	<!-- jQuery -->
@@ -79,9 +79,9 @@
 	<!-- Just for demonstration -->
 	<script src="<?php echo base_url(); ?>js/demonstration.min.js"></script>
 	<!-- Favicon -->
-	<link rel="shortcut icon" href="<?= site_url(); ?>img/favicon.ico" />
+	<link rel="shortcut icon" href="<?php echo site_url(); ?>img/favicon.ico" />
 	<!-- Apple devices Homescreen icon -->
-	<link rel="apple-touch-icon-precomposed" href="<?= site_url(); ?>img/apple-touch-icon-precomposed.png" />
+	<link rel="apple-touch-icon-precomposed" href="<?php echo site_url(); ?>img/apple-touch-icon-precomposed.png" />
 
 </head>
 

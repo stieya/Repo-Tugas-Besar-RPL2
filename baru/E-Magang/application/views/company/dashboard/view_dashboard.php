@@ -1,8 +1,19 @@
+		
 		<div id="main" >
 			<div class="container-fluid">
 				<div class="page-header">
 					<div class="pull-left">
 						<h1>Dashboard</h1>
+					</div>
+					<div class="pull-right">
+						<ul class="stats">
+							<li class='lightred'>
+								<i class="icon-calendar"></i>
+								<div class="details">
+									<span class="big"><?php echo $tanggal ?></span>
+								</div>
+							</li>
+						</ul>
 					</div>
 				</div>
 				<div class="row-fluid">
@@ -22,23 +33,23 @@
 									<tbody>
 										<tr>
 											<td>Nama Perusahaan </td>
-											<td class='hidden-480'>Perusahaan A</td>
+											<td class='hidden-480'><?php echo $perusahaan->perusahaan->nama; ?></td>
 										</tr>
 										<tr>
 											<td>Jumlah Lowongan Magang</td>
-											<td class='hidden-480'>8</td>
+											<td class='hidden-480'><?php echo $perusahaan->jumlah_job_sheet; ?></td>
 										</tr>
 										<tr>
 											<td>Lowongan Magang Yang Belum Di Klaim</td>
-											<td class='hidden-480'>2</td>
+											<td class='hidden-480'><?php echo $perusahaan->jumlah_job_sheet_belum_dikerjakan; ?></td>
 										</tr>
 										<tr>
 											<td>Lowongan Magang Yang Sedang Dikerjakan</td>
-											<td class='hidden-480'>2</td>
+											<td class='hidden-480'><?php echo $perusahaan->jumlah_job_sheet_dikerjakan; ?></td>
 										</tr>
 										<tr>
 											<td>Lowongan Magang Yang Sudah Selesai</td>
-											<td class='hidden-480'>4</td>
+											<td class='hidden-480'><?php echo $perusahaan->jumlah_job_sheet_dikerjakan; ?></td>
 										</tr>
 									</tbody>
 								</table>
@@ -61,19 +72,19 @@
 									<tbody>
 										<tr>
 											<td>Nama Perusahaan </td>
-											<td class='hidden-480'>Perusahaan A</td>
+											<td class='hidden-480'><?php echo $perusahaan->perusahaan->nama; ?></td>
 										</tr>
 										<tr>
-											<td>Mulai Berdiri Sejak</td>
-											<td class='hidden-480'>13-10-1993</td>
+											<td>Mulai Bergabung</td>
+											<td class='hidden-480'><?php echo $perusahaan->perusahaan->tanggal_masuk ?></td>
 										</tr>
 										<tr>
 											<td>Email </td>
-											<td class='hidden-480'>ismailzakky@yahoo.com</td>
+											<td class='hidden-480'><?php echo $perusahaan->perusahaan->email; ?></td>
 										</tr>
 										<tr>
 											<td>No Telp </td>
-											<td class='hidden-480'>080989999</td>
+											<td class='hidden-480'><?php echo $perusahaan->perusahaan->telepon; ?></td>
 										</tr>
 									</tbody>
 								</table>
@@ -95,13 +106,13 @@
 									<div class="control-group">
 										<label for="textfield" class="control-label">Nama Perusahaan</label>
 										<div class="controls">
-											<span class="uneditable-input">Perusahaan A</span>
+											<span class="uneditable-input"><?php echo $perusahaan->perusahaan->nama; ?></span>
 										</div>
 									</div>
 									<div class="control-group">
 										<label for="textfield" class="control-label">Email</label>
 										<div class="controls">
-											<span class="uneditable-input">ismailzakky@yahoo.com</span>
+											<span class="uneditable-input"><?php echo $perusahaan->perusahaan->email; ?></span>
 										</div>
 									</div>
 									<div class="control-group">
@@ -112,17 +123,6 @@
 												<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
 											</div>
 										</div>
-									</div>
-									
-									<div class="control-group">
-										<label for="textfield" class="control-label">Language(s)</label>
-										<div class="controls">
-											<div class="span12"><input type="text" name="textfield" id="textfield" class="tagsinput" value="German,English"></div>
-										</div>
-									</div>
-									<div class="form-actions">
-										<button type="submit" class="btn btn-primary">Save changes</button>
-										<button type="button" class="btn">Cancel</button>
 									</div>
 								</form>
 							</div>

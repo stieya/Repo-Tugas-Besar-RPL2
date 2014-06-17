@@ -57,19 +57,23 @@ class Company_m extends CI_Model {
 	}
 
 	public function signup(){
+
 		$this->input->post('email');
 		$this->input->post('nama');
 		$this->input->post('alamat');
 		$this->input->post('kode_pos');
 		$this->input->post('telepon');
 		$this->input->post('password');
+
 		$now = date('Y-m-d H:i:s');
 		$data_user = array(
 			'email' => $this->input->post('email'),
-			'password' => md5($this->input->post('email')),
+			'password' => md5($this->input->post('password')),
 			'status_user' => 'COMPANY',
 			'tanggal_masuk' => $now
-			);
+			);	
+
+		var_dump($data_user);
 		
 		if($this->db->insert('t_user',$data_user)){
 			$id = $this->db->insert_id();
@@ -81,7 +85,7 @@ class Company_m extends CI_Model {
 				'telepon' => $this->input->post('telepon'),
 				'id_user' => $id
 				);
-
+				
 			if($this->db->insert('t_perusahaan',$data_perusahaan)){
 				return TRUE;
 			}
@@ -106,7 +110,9 @@ class Company_m extends CI_Model {
 		if($query->num_rows() > 0){
 			$data = $query->result();
 
-			
+			//var_dump($data);
+			//$_SESSION['id_user'] = $data[0]->id_user;
+	
 			$this->session->set_userdata('id_user',$data[0]->id_user);
 			$this->session->set_userdata('email',$data[0]->email);
 			$this->session->set_userdata('nama',$data[0]->nama);
@@ -120,6 +126,43 @@ class Company_m extends CI_Model {
 			return FALSE;
 		}
 
+
+	}
+
+	public function getInfo(){
+			
+			$data = $this->db->select()->from('t_user');
+			$this->db->join('t_perusahaan','t_user.id_user = t_perusahaan.id_user');
+			$this->db->where('t_perusahaan.id_user',$this->session->userdata('id_user'));
+			$result = $this->db->get()->row();
+			
+
+			$query =  $this->db->select()->from('t_job_sheet');
+			$this->db->where('id_perusahaan',$result->id_perusahaan);
+			$result2 = $this->db->get()->result();
+
+			$query =  $this->db->select()->from('t_job_sheet');
+			$this->db->where('id_perusahaan',$result->id_perusahaan);
+			$this->db->where('status','1');
+			$result3 = $this->db->get()->result();
+
+			$query =  $this->db->select()->from('t_job_sheet');
+			$this->db->where('id_perusahaan',$result->id_perusahaan);
+			$this->db->where('status','0');
+			$result4 = $this->db->get()->result();
+
+			//var_dump($result4);
+
+			$data = new stdClass();
+			$data->jumlah_job_sheet_belum_dikerjakan = count($result4);
+			$data->jumlah_job_sheet_dikerjakan = count($result3);
+			$data->jumlah_job_sheet = count($result2);
+			$data->perusahaan = $result;
+			
+			return $data;
+	}
+
+	public function data(){
 
 	}
 

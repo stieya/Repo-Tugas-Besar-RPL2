@@ -10,27 +10,27 @@
 	
 
 	<!-- Bootstrap -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/bootstrap.min.css">
 	<!-- Bootstrap responsive -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/bootstrap-responsive.min.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/bootstrap-responsive.min.css">
 	<!-- jQuery UI -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/plugins/jquery-ui/smoothness/jquery-ui.css">
-	<link rel="stylesheet" href="<?= site_url(); ?>css/plugins/jquery-ui/smoothness/jquery.ui.theme.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/plugins/jquery-ui/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/plugins/jquery-ui/smoothness/jquery.ui.theme.css">
 	<!-- PageGuide -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/plugins/pageguide/pageguide.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/plugins/pageguide/pageguide.css">
 	<!-- Fullcalendar -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/plugins/fullcalendar/fullcalendar.css">
-	<link rel="stylesheet" href="<?= site_url(); ?>css/plugins/fullcalendar/fullcalendar.print.css" media="print">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/plugins/fullcalendar/fullcalendar.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/plugins/fullcalendar/fullcalendar.print.css" media="print">
 	<!-- chosen -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/plugins/chosen/chosen.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/plugins/chosen/chosen.css">
 	<!-- select2 -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/plugins/select2/select2.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/plugins/select2/select2.css">
 	<!-- icheck -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/plugins/icheck/all.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/plugins/icheck/all.css">
 	<!-- Theme CSS -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/style.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/style.css">
 	<!-- Color CSS -->
-	<link rel="stylesheet" href="<?= site_url(); ?>css/themes.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/themes.css">
 
 
 	<!-- jQuery -->
@@ -52,16 +52,16 @@
 	<!-- Theme scripts -->
 	<script src="<?php echo base_url(); ?>js/application.min.js"></script>
 	<!-- Favicon -->
-	<link rel="shortcut icon" href="<?= site_url(); ?>img/favicon.ico" />
+	<link rel="shortcut icon" href="<?php echo site_url(); ?>img/favicon.ico" />
 
-	<link rel="stylesheet" href="<?= site_url(); ?>css/costum.css">
+	<link rel="stylesheet" href="<?php echo site_url(); ?>css/costum.css">
 
 </head>
 
 <body>
 	<div id="navigation" style="height:40px;">
 		<div class="container-fluid">
-			<a href="<?= site_url(); ?>#" id="brand"><span style="background-color:#f1c40f;  padding:8px 8px; color:#fff;">Yuk</span> <span style="background-color:#7f8c8d; padding:8px 8px; color:#fff; margin-left:0px;">magang.com</span></a>
+			<a href="<?php echo site_url(); ?>#" id="brand"><span style="background-color:#f1c40f;  padding:8px 8px; color:#fff;">Yuk</span> <span style="background-color:#7f8c8d; padding:8px 8px; color:#fff; margin-left:0px;">magang.com</span></a>
 		</div>
 	</div>
 	
@@ -73,28 +73,28 @@
 				<?php if($error) : ?>
 				<div class="alert alert-error">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
-						Kombinasi <strong>Password dan Email!</strong> Tidak Sesuai
+					Kombinasi <strong>Password dan Email!</strong> Tidak Sesuai
 				</div>
 				<?php endif; ?>
 			</div>
 			<div class="modal-body">
 			<?php echo validation_errors(); ?>
-			<?= form_open(); ?>
+			<?php echo form_open(); ?>
 				<table class="table">
 					<tr>
 						<td>Email</td>
-						<td><?= form_input('email'); ?></td>
+						<td><?php echo form_input('email'); ?></td>
 					</tr>
 					<tr>
 						<td>Password</td>
-						<td> <?= form_password('password'); ?> </td>
+						<td> <?php echo form_password('password'); ?> </td>
 					</tr>
 					<tr>
 						<td></td>
 						<td> <input type="submit" value="Login" class="btn btn-primary" /> </td>
 					</tr>
 				</table>
-			<?= form_close(); ?>
+			<?php echo form_close(); ?>
 			</div>			 
 			<div class="modal-footer" style="background:#7f8c8d">
 				&copy; YukMagang.com

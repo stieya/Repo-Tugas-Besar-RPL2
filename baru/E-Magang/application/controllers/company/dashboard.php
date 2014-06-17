@@ -3,11 +3,15 @@
 class Dashboard extends Company_Controller {
 
 	public function index()
-	{
+	{	
+		$nav['halaman'] = 'dashboard';
+		$data['perusahaan'] = $this->company_m->getInfo();
+		$data['tanggal'] = date('Y:M:D');
+		//var_dump($data);
 		$this->load->view('company/view_head');
-		$this->load->view('company/view_nav');
+		$this->load->view('company/view_nav',$nav);
 		$this->load->view('company/view_side');
-		$this->load->view('company/dashboard/view_dashboard');
+		$this->load->view('company/dashboard/view_dashboard',$data);
 	}
 
 

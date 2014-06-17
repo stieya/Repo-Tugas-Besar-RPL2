@@ -5,8 +5,14 @@ class User_Controller extends MY_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		
-		$this->data['zakky'] = 'zakky';
+		//var_dump($this->session->userdata());
+		if($this->session->userdata('status_user') == 'COMPANY'){
+			redirect('company/');
+		}
+		if($this->session->userdata('status_user') == 'ADMIN'){
+			redirect('admin/');
+		}
+
 	}
 
 }

@@ -5,7 +5,7 @@ class Signup extends Company_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		//$this->load->model('company_m');
+		
 	}
 
 	public function index()
@@ -15,14 +15,15 @@ class Signup extends Company_Controller {
 		$this->form_validation->set_rules($rules);
 
 		if($this->form_validation->run() == TRUE){
-			//$data = $this->company_m->array_from_post(array('email','password','nama'));
-			$this->company_m->signup();
+			
+			if($this->company_m->signup()){
+				redirect('company/login');
+			}
 			
 		}
 		else{
-			//var_dump('salah');
-		}
 
+		}
 		$this->load->view('company/sign up/view_signup');
 	}
 

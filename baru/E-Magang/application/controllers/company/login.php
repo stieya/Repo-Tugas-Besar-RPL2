@@ -22,19 +22,14 @@ class Login extends Company_Controller {
 
 		if($this->form_validation->run() == TRUE){
 
-			//var_dump(array('email','password'));
-			//var_dump($_POST);
-			//$user_data = $this->company_m->array_from_post($_POST);
-			//var_dump($user_data);
 			if($this->company_m->login($_POST)){
 				redirect('company/dashboard');
 			}else{
 				$data['error'] = TRUE;
 			}
 
-
 		}else{
-
+		//	var_dump('zakky');
 		}
 
 		$this->load->view('company/login/view_login',$data);

@@ -6,8 +6,10 @@ class Company_Controller extends MY_Controller {
 	{
 		parent::__construct();
 		$this->load->model('company_m');
-		$this->data['zakky'] = 'zakky';
+		//$this->data['zakky'] = 'zakky';
 		$this->load->library('session');
+
+
 
 		$exception_uris = array('company/login','company/logout','company/signup');
 		
@@ -20,10 +22,19 @@ class Company_Controller extends MY_Controller {
 			}
 		}
 
+		//var_dump(uri_string());
+
 		$restricted_uris = array('company/signup','company/login');
 
 		if($this->company_m->loggedin() == TRUE){
-			//var_dump($this->session->userdata);
+			if($this->session->userdata('status_user') == 'STUDENT'){
+				redirect('user/');
+			}
+		
+			if($this->session->userdata('status_user') == 'ADMIN'){
+				redirect('admin/');
+			}
+
 			if(in_array(uri_string(), $restricted_uris) == TRUE){
 				//var_dump(uri_string());
 				redirect('company/');
