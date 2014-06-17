@@ -1,0 +1,38 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class Company_Controller extends MY_Controller {
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('company_m');
+		$this->data['zakky'] = 'zakky';
+		$this->load->library('session');
+
+		$exception_uris = array('company/login','company/logout','company/signup');
+		
+
+		if(in_array(uri_string(),$exception_uris) == FALSE){
+			//var_dump(uri_string());
+			if($this->company_m->loggedin() == FALSE){
+				//var_dump(uri_string());
+				redirect('company/login');
+			}
+		}
+
+		$restricted_uris = array('company/signup','company/login');
+
+		if($this->company_m->loggedin() == TRUE){
+			//var_dump($this->session->userdata);
+			if(in_array(uri_string(), $restricted_uris) == TRUE){
+				//var_dump(uri_string());
+				redirect('company/');
+			}
+		}
+
+
+	}
+}
+
+/* End of file Company_Controller.php */
+/* Location: ./application/libraries/Company_Controller.php */

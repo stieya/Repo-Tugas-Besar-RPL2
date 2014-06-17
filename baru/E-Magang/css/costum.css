@@ -1,0 +1,12 @@
+#navigation{
+	background: #2980b9;
+}
+
+#navigation #brand{
+	background: none;
+	margin-left: -50px;
+}
+
+.dropdown-menu>li>a:hover{
+	background: #2c3e50;
+}
