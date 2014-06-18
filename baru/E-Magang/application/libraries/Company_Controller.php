@@ -8,6 +8,7 @@ class Company_Controller extends MY_Controller {
 		$this->load->model('company_m');
 		//$this->data['zakky'] = 'zakky';
 		$this->load->library('session');
+		$this->load->helper('date');
 
 
 

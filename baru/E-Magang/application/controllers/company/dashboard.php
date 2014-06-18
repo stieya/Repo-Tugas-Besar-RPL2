@@ -2,11 +2,18 @@
 
 class Dashboard extends Company_Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+	}
 	public function index()
 	{	
 		$nav['halaman'] = 'dashboard';
 		$data['perusahaan'] = $this->company_m->getInfo();
-		$data['tanggal'] = date('Y:M:D');
+		$format = 'DATE_COOKIE';
+			timezones('UP7');
+			$time = time();
+			$data['tanggal'] = substr(standard_date($format,$time),0,18);
 		//var_dump($data);
 		$this->load->view('company/view_head');
 		$this->load->view('company/view_nav',$nav);

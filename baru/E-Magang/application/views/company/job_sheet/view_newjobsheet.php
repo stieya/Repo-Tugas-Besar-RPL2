@@ -1,5 +1,6 @@
 		
-		
+		<div id="main" >
+			<div class="container-fluid">
 				<div class="row-fluid">
 					<div class="span12">
 						<?php if($error) : ?>
@@ -21,6 +22,17 @@
 										<label for="password" class="control-label">Nama Job Sheet</label>
 										<div class="controls">
 											<input type="text" name="nama" id="nama" placeholder="Nama Job Sheet" class="input-xlarge">
+										</div>
+									</div>
+									<div class="control-group">
+										<label for="textfield" class="control-label">Bidang Khusus</label>
+										<div class="controls">
+											<div class="input-xlarge"><select name="bidang" id="select" class='chosen-select'>
+												<option value="0">Umum</option>
+												<?php foreach ($jurusan as $bidang) : ?> 
+												<option value="<?php echo $bidang->id_jurusan; ?>"><?php echo $bidang->nama; ?></option>
+												<?php endforeach; ?>
+											</select></div>
 										</div>
 									</div>
 									<div class="control-group">

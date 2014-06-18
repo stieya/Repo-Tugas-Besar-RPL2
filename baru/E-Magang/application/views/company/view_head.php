@@ -51,10 +51,6 @@
 	<script src="<?php echo base_url(); ?>js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 	<!-- Bootstrap -->
 	<script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
-	<!-- vmap -->
-	<script src="<?php echo base_url(); ?>js/plugins/vmap/jquery.vmap.min.js"></script>
-	<script src="<?php echo base_url(); ?>js/plugins/vmap/jquery.vmap.world.js"></script>
-	<script src="<?php echo base_url(); ?>js/plugins/vmap/jquery.vmap.sampledata.js"></script>
 	<!-- Bootbox -->
 	<script src="<?php echo base_url(); ?>js/plugins/bootbox/jquery.bootbox.js"></script>
 	<!-- Flot -->
@@ -72,17 +68,10 @@
 	<script src="<?php echo base_url(); ?>js/plugins/select2/select2.min.js"></script>
 	<!-- icheck -->
 	<script src="<?php echo base_url(); ?>js/plugins/icheck/jquery.icheck.min.js"></script>
-
-	<!-- Theme framework -->
-	<script src="<?php echo base_url(); ?>js/eakroko.min.js"></script>
 	<!-- Theme scripts -->
 	<script src="<?php echo base_url(); ?>js/application.min.js"></script>
-	<!-- Just for demonstration -->
-	<script src="<?php echo base_url(); ?>js/demonstration.min.js"></script>
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="<?php echo site_url(); ?>img/favicon.ico" />
-	<!-- Apple devices Homescreen icon -->
-	<link rel="apple-touch-icon-precomposed" href="<?php echo site_url(); ?>img/apple-touch-icon-precomposed.png" />
 
 </head>
 

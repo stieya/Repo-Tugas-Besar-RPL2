@@ -17,19 +17,55 @@
 					</a>
 				</li>
 				<?php endif; ?>
-
+				
+				<?php if($halaman == 'jobsheetlist' || $halaman == 'jobsheet' || $halaman == 'newjobsheet') : ?>
+				<li class='active'>
+					<a href="<?php echo site_url(); ?>#" data-toggle="dropdown" class='dropdown-toggle'>
+						<i class="icon-edit"></i>
+						<span>Job Sheet</span>
+						<span class="caret"></span>
+					</a>
+				<?php else : ?>				
 				<li>
 					<a href="<?php echo site_url(); ?>#" data-toggle="dropdown" class='dropdown-toggle'>
 						<i class="icon-edit"></i>
 						<span>Job Sheet</span>
 						<span class="caret"></span>
 					</a>
+				<?php endif; ?>
+
 					<ul class="dropdown-menu">
-						<li>
+						<?php if($halaman == 'newjobsheet') : ?>
+						<li class="active">
 							<a href="<?php echo site_url(); ?>company/jobsheet/newjobsheet/">Buat Baru</a>
 						</li>
+						<?php else :?>
 						<li>
-							<a href="<?php echo site_url(); ?>company/jobsheet">Daftar Jobsheet</a>
+							<a href="<?php echo site_url(); ?>company/jobsheet/newjobsheet/">Buat Baru</a>
+						</li>	
+						<?php endif;?>
+
+						<?php if($halaman == 'jobsheetlist') : ?>
+						<li class="active">
+							<a href="<?php echo site_url(); ?>company/jobsheet">Daftar</a>
+						</li>
+						<?php else :?>
+						<li>
+							<a href="<?php echo site_url(); ?>company/jobsheet">Daftar</a>
+						</li>
+						<?php endif;?>
+						
+					</ul>
+				</li>
+				<li>
+					<a href="<?php echo site_url(); ?>#" data-toggle="dropdown" class='dropdown-toggle'>
+						<i class="icon-edit"></i>
+						<span>Message</span>
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li >
+							<a href="<?php echo site_url(); ?>company/jobsheet/newjobsheet/">Daftar Pesan</a>
 						</li>
 					</ul>
 				</li>

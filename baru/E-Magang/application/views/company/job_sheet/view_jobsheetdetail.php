@@ -1,0 +1,183 @@
+		<div id="main" >
+			<div class="container-fluid">				
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="box">
+							<div class="box-title">
+								<h3><i class="icon-edit"></i> <?php echo $jobsheets->jobsheetdetail->nama_job_sheet; ?></h3>
+								<div class="actions">
+									<a href="#" class="btn btn-large "><i class="icon-trash"></i></a>
+								</div>
+
+							</div>										
+							<div class="box-content">
+								
+								<div class="search-info">							
+									<p><?php echo $jobsheets->jobsheetdetail->deskripsi_job_sheet; ?></p>
+								</div>							
+							</div>
+						</div>					
+					</div>
+				</div>
+
+				
+
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="box">
+							<div class="box-title">
+								<h3> Job List</h3>
+							</div>										
+							<div class="box-content">
+								
+								<div class="search-info">							
+									<div class="box-content">
+										<div class="joblist">
+											<div class="accordion" id="accordion2">
+												<?php $i = 1;foreach ($jobsheets->jobsheetlist as $list) : ?>
+												<div class="accordion-group">	
+													<?php if($list->status == 'Finished') : ?>
+													<div class="accordion-heading finished">
+													<?php else : ?>
+													<div class="accordion-heading">
+													<?php endif; ?>
+
+
+														<a class="accordion-toggle <?php if($i==1) echo 'collapsed'; ?> " data-toggle="collapse" data-parent="#accordion2" href="#<?php echo $i; ?>">
+															<?php echo $list->head; ?>
+														</a>
+													</div>
+													<div id="<?php echo $i; ?>" class="accordion-body collapse in">
+														<div class="accordion-inner">
+															<div class="row-fluid">
+																<div class="span12">
+																	<div class="box">
+																		<div class="box-title">
+																			<h3> Job List</h3>
+																			<div class="actions">
+																				<a href="#" class="btn btn-large "><i class="icon-trash"></i></a>
+																				<a href="#" class="btn btn-large "><i class="icon-cog"></i></a>
+																				<a href="#" class="btn btn-large "><i class="icon-check"></i></a>
+																			</div>
+
+																		</div>										
+																		<div class="box-content">
+																			
+																			<div class="search-info">							
+																				<p>
+																				 	<?php echo $list->body; ?>
+																				</p>
+																			</div>							
+																		</div>
+																	</div>					
+																</div>
+															</div>
+															<?php if($list->file_perusahaan == NULL ) :?>
+															<div class="row-fluid">
+																<div class="span12">
+																	<div class="box">
+																		<div class="box-title">
+																			<h3> File</h3>
+																		</div>										
+																		<div class="box-content">
+																			
+																			<div class="search-info">							
+																				<p>
+																					File System Requirement
+																				</p>
+																				<p>
+																					<button class="btn-block btn btn-large">Download File </button>
+																				</p>
+																			</div>							
+																		</div>
+																	</div>					
+																</div>
+															</div>
+															<?php endif; ?>
+
+														</div>
+													</div>
+												</div>
+												<?php $i++;endforeach; ?>
+
+											</div>
+										</div>
+									</div>
+								</div>							
+							</div>
+						</div>					
+					</div>
+				</div>
+
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="box">
+							<div class="box-title">
+								<h3>
+									<i class="icon-comments"></i>
+									Pelamar Job Sheet
+								</h3>
+								<div class="actions">
+									<a href="#" class="btn btn-mini content-refresh"><i class="icon-refresh"></i></a>
+									<a href="#" class="btn btn-mini content-remove"><i class="icon-remove"></i></a>
+									<a href="#" class="btn btn-mini content-slideUp"><i class="icon-angle-down"></i></a>
+								</div>
+							</div>
+							<div class="box-content nopadding">
+								<ul class="messages">
+									<li class="left">
+										<div class="image">
+											<img src="img/demo/user-1.jpg" alt="">
+										</div>
+										<div class="message">
+											<span class="caret"></span>
+											<span class="name">Jane Doe</span>
+											<p>Lorem ipsum aute ut ullamco et nisi ad. </p>
+											<p>
+												<h5> File Pengantar </h5>
+											</p>
+											<p>
+												<button class="btn-block btn btn-primary">Download File </button>
+											</p>
+											<span class="time">
+												12 minutes ago
+											</span>
+										</div>
+									</li>
+									<li class="left">
+										<div class="image">
+											<img src="img/demo/user-1.jpg" alt="">
+										</div>
+										<div class="message">
+											<span class="caret"></span>
+											<span class="name">Jane Doe</span>
+											<p>Lorem ipsum aute ut ullamco et nisi ad. </p>
+											<p>
+												<h5> File Pengantar </h5>
+											</p>
+											<p>
+												<button class="btn-block btn btn-primary">Download File </button>
+											</p>
+											<span class="time">
+												12 minutes ago
+											</span>
+										</div>
+									</li>
+									<!--
+									<li class="insert">
+										digunakaan bagi user untuk mealkukan pengajuan
+										<form id="message-form" method="POST" action="#">
+											<div class="text">
+												<input type="text" name="text" placeholder="Write here..." class="input-block-level">
+											</div>
+											<div class="submit">
+												<button type="submit"><i class="icon-share-alt"></i></button>
+											</div>
+										</form>
+									</li>
+									-->
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>

@@ -143,12 +143,12 @@ class Company_m extends CI_Model {
 
 			$query =  $this->db->select()->from('t_job_sheet');
 			$this->db->where('id_perusahaan',$result->id_perusahaan);
-			$this->db->where('status','1');
+			$this->db->where('status','Ongoing');
 			$result3 = $this->db->get()->result();
 
 			$query =  $this->db->select()->from('t_job_sheet');
 			$this->db->where('id_perusahaan',$result->id_perusahaan);
-			$this->db->where('status','0');
+			$this->db->where('status','Unclaimed');
 			$result4 = $this->db->get()->result();
 
 			//var_dump($result4);

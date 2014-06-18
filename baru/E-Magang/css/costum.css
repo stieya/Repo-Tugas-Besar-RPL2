@@ -4,9 +4,30 @@
 
 #navigation #brand{
 	background: none;
-	margin-left: -50px;
+	margin-left: -40px;
+	margin-top: 10.6px;
 }
 
 .dropdown-menu>li>a:hover{
 	background: #2c3e50;
+}
+
+
+.joblist .accordion-heading.finished{
+
+	background: #56af45 !important;
+}
+
+.joblist .accordion-heading.finished a {
+
+	color: #fff;
+
+}
+
+.joblist .accordion-heading a:hover {
+	text-decoration: none;
+}
+
+.joblist .accordion-heading.finished a:hover {
+	text-decoration: none;
 }
