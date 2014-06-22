@@ -1,0 +1,348 @@
+body, html {
+	height: 100%;
+	width: 100%;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 700;
+}
+
+
+.head .container 
+{
+width:100%;
+background: none repeat scroll 0 0 #2F362F !important;
+color:#fff;
+padding:8px;
+
+}
+
+.lead {
+	font-size: 15px;
+	font-weight: 400;
+	color: #666;
+}
+
+.intro-header {
+	padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+	color: #f8f8f8;
+	background: url(../img/intro-bg.jpg) 10px 20px no-repeat;
+	opacity: 0.9;
+	background-size: cover;
+	text-align: center;
+	margin-top:40px;
+
+	
+}
+
+.intro-header .container{
+background:rgba(0,0,0,0.6);
+width:100%;
+height:50%;
+margin-top: -100px;
+
+}
+
+.intro-message {
+	position: relative;
+	padding-top: 20%;
+	padding-bottom: 20%;
+}
+
+.intro-message > h1 {
+	margin: 0;
+	font-size: 5em;
+	text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.intro-divider {
+	width: 400px;
+	border-top: 1px solid #f8f8f8;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.intro-message > h3 {
+	text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 767px) {
+	.intro-message {
+		padding-bottom: 5%;
+	}
+
+	.intro-message > h1 {
+		font-size: 3em;
+		
+	}
+
+	ul.intro-social-buttons > li {
+		display: block;
+		margin-bottom: 20px;
+		padding: 0;
+	}
+
+	ul.intro-social-buttons > li:last-child {
+		margin-bottom: 0;
+	}
+
+	.intro-divider {
+		width: 100%;
+	}
+}
+
+.network-name {
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: 2px;
+}
+
+.content-section-a {
+	background-color: #f8f8f8;
+	padding: 50px 0;
+}
+
+.content-section-b {
+	border-top: 1px solid #e7e7e7;
+	border-bottom: 1px solid #e7e7e7;
+	padding: 50px 0;
+	
+}
+
+.section-heading {
+	margin-bottom: 30px;
+}
+
+.section-heading-spacer {
+	border-top: 3px solid #e7e7e7;
+	width: 200px;
+	float: left;
+}
+
+
+.banner {
+	padding: 40px 0;
+	color: #f8f8f8;
+	background:none repeat scroll 0 0 #313640;
+	background-size: cover;
+	
+}
+
+.banner h2 {
+	margin: 0;
+	text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+	font-size: 3em;
+	
+}
+
+.banner ul {
+	margin-bottom: 0;
+}
+
+.banner-social-buttons {
+	float: left;
+	margin-top: 30px;
+}
+
+@media (max-width: 1199px) {
+	ul.banner-social-buttons {
+		float: left;
+		margin-top: 15px;
+	}	
+	
+	
+}
+
+@media (max-width: 767px) {
+
+	.lead
+	{
+
+	font-size: 14px !important;
+	}
+
+	.banner h2 {
+		margin: 0;
+		text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+		font-size: 3em;
+	}
+
+	ul.banner-social-buttons > li {
+		display: block;
+		margin-bottom: 20px;
+		padding: 0;
+	}
+
+	ul.banner-social-buttons > li:last-child {
+		margin-bottom: 0;
+	}	
+	
+	.intro-header {
+	margin-top:-80px;
+	}
+	
+	.footer-address{
+	padding-top:60px;
+	font-size:1.2em;
+	}
+	
+	.modal-content-Mahasiswa,.modal-content-perusahaan
+	{
+	
+	width:300px !important;
+	margin-left: 30px !important;
+	margin-top:100px !important
+	}
+
+
+  .modal-content-signup-Mahasiswa, .modal-content-signup-perusahaan{
+ 	width:380px !important;
+	margin-left: 10px !important;
+	margin-top:100px !important
+	}
+
+	.ganjil {
+		margin-top:80px !important;
+	}
+
+	.quote-text {
+    font-size: 10px !important;
+	}
+
+.quote-author-pic {
+	width: 30px !important;
+	}
+	
+}
+
+footer {
+	background-color: #f8f8f8;
+	padding: 20px 0;
+}
+
+p.copyright {
+	margin: 15px 0 0;
+}
+
+.nav a
+{display:block;
+height:60px;
+color:#fff;
+text-decoration:none;
+-webkit-transition:all 0.2s ease;
+-moz-transition:all 0.2s ease;
+-o-transition:all 0.2s ease;
+transition:all 0.2s ease;
+}
+
+.number
+{
+font-weight:bold;
+color:#e74c3c;
+}
+
+
+.modal-content-Mahasiswa, .modal-content-perusahaan{
+  width:450px;
+  margin-left: 15%;
+  margin-top:100px;
+  position: relative;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 6px;
+  outline: none;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+          box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+}
+
+
+.modal-content-signup-Mahasiswa, .modal-content-signup-perusahaan{
+  width:100%;
+  margin-left: 5%;
+  margin-top:100px;
+  position: relative;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 6px;
+  outline: none;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+          box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+
+
+}
+
+
+.footer-address 
+{
+margin-top:70px;
+}
+
+#media 
+{
+
+	float: right;
+	margin-right:-150px;
+	margin-top: -60px;
+}
+
+.ganjil h1:before 
+
+{
+	content: '';
+	border-left: 18px solid #2F362F ;
+	padding-right: 10px;
+	margin-bottom: 20px;
+
+}
+
+
+.ganjil h1 
+
+{
+	
+	margin-bottom: 20px;
+
+}
+
+
+
+.quote-author-pic {
+float: left;
+margin-right: 12px;
+margin-left: 28px;
+width: 50px;
+-webkit-border-radius: 800px;
+-moz-border-radius: 800px;
+-ms-border-radius: 800px;
+-o-border-radius: 800px;
+border-radius: 800px;
+}
+
+.quote-text {
+ 	clear: both;
+    font-style: italic;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px 10px 0 50px;
+    position: relative;
+    quotes: none;
+    background: url(../img/open-quote.png) 0 0 no-repeat;
+    border: 0px;
+    font-size: 14px;
+    line-height: 200%;
+    text-align: justify;
+
+}
+
+
+.quote-author strong {
+display: inline-block;
+font-size: 14px !important;
+line-height: 1.3 !important;
+color: #3498db;
+}
