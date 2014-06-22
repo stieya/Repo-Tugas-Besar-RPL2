@@ -8,6 +8,8 @@ class Dashboard extends Company_Controller {
 	}
 	public function index()
 	{	
+		$side['info'] = $this->infocompany;
+		$nav['info'] = $this->infocompany;
 		$nav['halaman'] = 'dashboard';
 		$data['perusahaan'] = $this->company_m->getInfo();
 		$format = 'DATE_COOKIE';
@@ -17,7 +19,7 @@ class Dashboard extends Company_Controller {
 		//var_dump($data);
 		$this->load->view('company/view_head');
 		$this->load->view('company/view_nav',$nav);
-		$this->load->view('company/view_side');
+		$this->load->view('company/view_side',$side);
 		$this->load->view('company/dashboard/view_dashboard',$data);
 	}
 

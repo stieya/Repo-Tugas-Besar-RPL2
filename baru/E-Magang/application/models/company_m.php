@@ -1,14 +1,16 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Company_m extends CI_Model {
+class Company_m extends MY_Model {
 
 	public $table_name = 't_user';
-	protected $_primary_key = 'id';
+	protected $_primary_key = '';
 	protected $_primary_filter = 'intval';
 	protected $_order_by = '';
 	public $rules = array();
 	protected $_timestamp = TRUE;
 	protected $_where = "";
+	public $table = '';
+	public $primary = '';
 
 	public $signup_rules = array(
 		'email' => array(
@@ -108,17 +110,17 @@ class Company_m extends CI_Model {
 		$value = array($data['email'],md5($data['password']));
 		$query = $this->db->query($sql,$value);
 		if($query->num_rows() > 0){
-			$data = $query->result();
+			$data = $query->row();
 
 			//var_dump($data);
 			//$_SESSION['id_user'] = $data[0]->id_user;
 	
-			$this->session->set_userdata('id_user',$data[0]->id_user);
-			$this->session->set_userdata('email',$data[0]->email);
-			$this->session->set_userdata('nama',$data[0]->nama);
-			$this->session->set_userdata('foto_user',$data[0]->foto_user);
-			$this->session->set_userdata('status_user',$data[0]->status_user);
-			$this->session->set_userdata('id_perusahaan',$data[0]->id_perusahaan);
+			$this->session->set_userdata('id_user',$data->id_user);
+			$this->session->set_userdata('email',$data->email);
+			$this->session->set_userdata('nama',$data->nama);
+			$this->session->set_userdata('foto_user',$data->foto_user);
+			$this->session->set_userdata('status_user',$data->status_user);
+			$this->session->set_userdata('id_perusahaan',$data->id_perusahaan);
 			$this->session->set_userdata('loggedin',TRUE);
 			return TRUE;
 
@@ -131,14 +133,18 @@ class Company_m extends CI_Model {
 
 	public function getInfo(){
 			
-			$data = $this->db->select()->from('t_user');
-			$this->db->join('t_perusahaan','t_user.id_user = t_perusahaan.id_user');
-			$this->db->where('t_perusahaan.id_user',$this->session->userdata('id_user'));
+			$query = $this->db->select('id_perusahaan,foto_user,t_kota.nama AS nama_kota,email,tanggal_masuk,t_perusahaan.nama AS nama_perusahaan,alamat,t_perusahaan.id_kota AS id_kota,t_kota.nama ,kode_pos,telepon,t_user.id_user AS id_user,website,id_provinsi')
+								->from('t_perusahaan')
+								->join('t_user','t_perusahaan.id_user = t_user.id_user')
+								->join('t_kota','t_perusahaan.id_kota = t_kota.id_kota')
+								->where('t_perusahaan.id_user', $this->session->userdata('id_user'));
+
 			$result = $this->db->get()->row();
 			
 
 			$query =  $this->db->select()->from('t_job_sheet');
 			$this->db->where('id_perusahaan',$result->id_perusahaan);
+			$this->db->where('status <>','Hidden');
 			$result2 = $this->db->get()->result();
 
 			$query =  $this->db->select()->from('t_job_sheet');
@@ -151,14 +157,23 @@ class Company_m extends CI_Model {
 			$this->db->where('status','Unclaimed');
 			$result4 = $this->db->get()->result();
 
-			//var_dump($result4);
+			$query =  $this->db->select()->from('t_job_sheet');
+			$this->db->where('id_perusahaan',$result->id_perusahaan);
+			$this->db->where('status','Finished');
+			$result5 = $this->db->get()->result();
+
+			
+
+
+
 
 			$data = new stdClass();
+			$data->jumlah_job_sheet_selesai = count($result5);
 			$data->jumlah_job_sheet_belum_dikerjakan = count($result4);
 			$data->jumlah_job_sheet_dikerjakan = count($result3);
 			$data->jumlah_job_sheet = count($result2);
 			$data->perusahaan = $result;
-			
+
 			return $data;
 	}
 
@@ -177,6 +192,18 @@ class Company_m extends CI_Model {
 		}
 
 		return $data;
+	}
+
+
+	public function saveProfile($data,$id){
+
+		
+		$id = mysql_real_escape_string($id);
+		$this->db->set($data);
+		$this->db->where($this->primary,$id);
+		if($this->db->update($this->table)){
+			return TRUE;
+		}
 	}
 
 

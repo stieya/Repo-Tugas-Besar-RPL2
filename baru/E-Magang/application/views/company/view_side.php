@@ -1,63 +1,41 @@
 <div class="container-fluid" id="content">
 		<div id="left">
-			<form action="search-results.html" method="GET" class='search-form'>
-				<div class="search-pane">
-					<input type="text" name="search" placeholder="Search here...">
-					<button type="submit"><i class="icon-search"></i></button>
-				</div>
-			</form>
 			<div class="subnav">
 				<div class="subnav-title">
-					<a href="#" class='toggle-subnav'><i class="icon-angle-down"></i><span>Content</span></a>
+					<a href="#" class='toggle-subnav'><i class="icon-angle-down"></i><span>Profile</span></a>
 				</div>
 				<ul class="subnav-menu">
 					<li>
-						<a href="#">Articles</a>
+						<div class="control-group">
+								<div class="controls">
+									<div class="fileupload fileupload-new" data-provides="fileupload">
+									<div class="fileupload-new thumbnail" style="width: 80px; height: 80px;">
+										<?php if(!is_null($info->perusahaan->foto_user)) : ?>
+										<img src="<?php echo base_url().'images/company/'.$this->session->userdata('id_user').'/'.$info->perusahaan->foto_user;?>" class="img-responsive" style="width: 80px; height: 80px;"/>
+									 	<?php else : ?>
+									 	<img src="<?php echo base_url().'img/no_image.png'; ?>" class="img-responsive" style="width: 80px; height: 80px;"/>
+									 	<?php endif; ?>
+									</div>
+									<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+								</div>
+							</div>
+						</div>
+
 					</li>
 					<li>
-						<a href="#">News</a>
+						<a ><?php echo $info->perusahaan->nama_perusahaan; ?></a>
 					</li>
 					<li>
-						<a href="#">Pages</a>
+						<a ><?php echo $info->perusahaan->email; ?></a>
 					</li>
 					<li>
-						<a href="#">Comments</a>
+						<a ><?php echo $info->perusahaan->telepon; ?></a>
 					</li>
-				</ul>
-			</div>
-			<div class="subnav">
-				<div class="subnav-title">
-					<a href="#" class='toggle-subnav'><i class="icon-angle-down"></i><span>Plugins</span></a>
-				</div>
-				<ul class="subnav-menu">
+					<?php if(!is_null($info->perusahaan->website)) :?>
 					<li>
-						<a href="#">Cache manager</a>
+						<a href="http://www.<?php echo $info->perusahaan->website; ?>" >www.<?php echo $info->perusahaan->website; ?></a>
 					</li>
-					<li>
-						<a href="#">Import manager</a>
-					</li>
-					<li>
-						<a href="#">Contact form generator</a>
-					</li>
-					<li>
-						<a href="#">SEO optimization</a>
-					</li>
-				</ul>
-			</div>
-			<div class="subnav">
-				<div class="subnav-title">
-					<a href="#" class='toggle-subnav'><i class="icon-angle-down"></i><span>Settings</span></a>
-				</div>
-				<ul class="subnav-menu">
-					<li>
-						<a href="#">Theme settings</a>
-					</li>
-					<li>
-						<a href="#">Page settings</a>
-					</li>
-					<li>
-						<a href="#">Security settings</a>
-					</li>
+					<?php endif; ?>
 				</ul>
 			</div>
 		</div>

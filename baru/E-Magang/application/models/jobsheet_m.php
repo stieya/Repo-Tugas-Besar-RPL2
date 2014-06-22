@@ -10,6 +10,7 @@ class Jobsheet_m extends MY_Model {
 	protected $_timestamp = FALSE;
 	protected $_where = "";
 
+
 	public function saveJob(){
 
 		
@@ -26,7 +27,9 @@ class Jobsheet_m extends MY_Model {
 			'durasi' => $this->input->post('durasi')
 			);
 		if($this->db->insert('t_job_sheet',$data_jobsheet)){
-			return FALSE;
+			//var_dump($this->db->insert_id());
+			return $this->db->insert_id();
+
 		}
 		else{
 			return TRUE;			
@@ -34,14 +37,9 @@ class Jobsheet_m extends MY_Model {
 
 	}
 
-	public function saveJobList(){
 
-
-	}
 
 	public function getJobList(){
-
-
 	}
 
 	public function getJobSheet(){
@@ -65,17 +63,65 @@ class Jobsheet_m extends MY_Model {
 					->where('id_job_sheet',$id);
 
 		$result = $this->db->get()->row();
+
 		$this->db->select()->from('t_job_list')
 								->where('id_job_sheet',$result->id_job_sheet);
+		$this->db->order_by('id_job_list',"ASC");					
+
 		$result2 = $this->db->get()->result();
-					
 		$data = new stdClass();
 		$data->jobsheetdetail = $result;
 		$data->jobsheetlist = $result2;
-
+		
 		return $data;
 	}
 
+
+	public function getJoblistDetail($id_job_sheet,$id_job_list){
+
+		$this->db->select('foto_user,
+							t_universitas.nama AS nama_kampus,
+							nim,
+							t_student.nama AS nama_student,
+							t_student_job_sheet.status AS status_student_job,
+							t_student.id_student AS id_pekerja,
+							waktu_start,
+							waktu_akhir,')
+						->from('t_job_sheet')
+						->join('t_student_job_sheet','t_job_sheet.id_job_sheet = t_student_job_sheet.id_job_sheet')
+						->join('t_student','t_student.id_student = t_student_job_sheet.id_student')
+						->join('t_universitas','t_student.id_universitas = t_universitas.id_universitas')
+						->join('t_user','t_student.id_user = t_user.id_user')
+						->where('t_job_sheet.id_job_sheet',mysql_real_escape_string($id_job_sheet))
+						->where('t_student_job_sheet.status',1);
+
+		$result = $this->db->get()->row();
+
+		$this->db->select()
+			->from('t_job_list')
+			->join('t_student_job_list','t_student_job_list.id_job_list = t_job_list.id_job_list','left')
+			->where('t_job_list.id_job_list',mysql_real_escape_string($id_job_list));
+
+		$result2 = $this->db->get()->row();
+
+		$data = new stdClass();
+		$data->studentjobsheet = $result;
+		$data->studentjoblist = $result2;
+
+		return $data;
+
+	}
+
+	public function getJobSheetapp($id_job_sheet){
+		$this->db->select()->from('t_job_sheet_application')
+					->join('t_student','t_job_sheet_application.id_student = t_student.id_student')
+					->join('t_user','t_student.id_user = t_user.id_user')
+					->where('id_job_sheet',mysql_real_escape_string($id_job_sheet));
+			
+		$data = $this->db->get()->result();
+
+		return $data;
+	}
 
 }
 

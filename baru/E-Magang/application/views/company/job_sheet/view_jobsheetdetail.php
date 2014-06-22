@@ -28,6 +28,9 @@
 							<div class="box-title">
 								<h3> Job List</h3>
 							</div>										
+							<div class="action">
+								<a href="<?php echo base_url().'/company/joblist/newjoblist/'.$jobsheets->jobsheetdetail->id_job_sheet;?>"class="btn-block btn-primary btn btn-large ">Tambah Job List </a>
+							</div>
 							<div class="box-content">
 								
 								<div class="search-info">							
@@ -39,7 +42,7 @@
 													<?php if($list->status == 'Finished') : ?>
 													<div class="accordion-heading finished">
 													<?php else : ?>
-													<div class="accordion-heading">
+													<div class="accordion-heading unfinished">
 													<?php endif; ?>
 
 
@@ -53,11 +56,17 @@
 																<div class="span12">
 																	<div class="box">
 																		<div class="box-title">
-																			<h3> Job List</h3>
+																			<h3> Deskripsi Tugas </h3>
 																			<div class="actions">
-																				<a href="#" class="btn btn-large "><i class="icon-trash"></i></a>
-																				<a href="#" class="btn btn-large "><i class="icon-cog"></i></a>
-																				<a href="#" class="btn btn-large "><i class="icon-check"></i></a>
+																				<a href="<?php echo site_url().'company/jobsheet/'.$jobsheets->jobsheetdetail->id_job_sheet.'/'.$list->id_job_list;?>" class="btn btn-large "><i class="icon-tasks"></i></a>
+																				<a href="<?php echo site_url().'company/joblist/hapus/'.$jobsheets->jobsheetdetail->id_job_sheet.'/'.$list->id_job_list;?>" class="btn btn-large "><i class="icon-trash"></i></a>
+																				<a href="<?php echo site_url().'company/joblist/edit/'.$jobsheets->jobsheetdetail->id_job_sheet.'/'.$list->id_job_list;?>" class="btn btn-large "><i class="icon-cog"></i></a>
+																				<?php if($list->status =='Finished') : ?>
+																				<a href="<?php echo site_url().'company/joblist/uncheck/'.$jobsheets->jobsheetdetail->id_job_sheet.'/'.$list->id_job_list;?>" class="btn btn-large "><i class="icon-check-empty"></i></a>
+																				<?php else : ?>
+																				<a href="<?php echo site_url().'company/joblist/check/'.$jobsheets->jobsheetdetail->id_job_sheet.'/'.$list->id_job_list;?>" class="btn btn-large "><i class="icon-check"></i></a>
+																				<?php endif; ?>
+
 																			</div>
 
 																		</div>										
@@ -72,7 +81,7 @@
 																	</div>					
 																</div>
 															</div>
-															<?php if($list->file_perusahaan == NULL ) :?>
+															<?php if($list->file_perusahaan != NULL ) :?>
 															<div class="row-fluid">
 																<div class="span12">
 																	<div class="box">
@@ -83,10 +92,10 @@
 																			
 																			<div class="search-info">							
 																				<p>
-																					File System Requirement
+																					File yang berkaitan dengan tugas ini
 																				</p>
 																				<p>
-																					<button class="btn-block btn btn-large">Download File </button>
+																					<a href="<?php echo site_url().'files/company/'.$jobsheets->jobsheetdetail->id_job_sheet.'/'.$list->file_perusahaan; ?>"class="btn-block btn btn-large">Download File </a>
 																				</p>
 																			</div>							
 																		</div>
@@ -124,6 +133,8 @@
 								</div>
 							</div>
 							<div class="box-content nopadding">
+								<?php  if(count($application) > 0) : ?>
+								<?php foreach($application as $app) :?>
 								<ul class="messages">
 									<li class="left">
 										<div class="image">
@@ -131,38 +142,24 @@
 										</div>
 										<div class="message">
 											<span class="caret"></span>
-											<span class="name">Jane Doe</span>
-											<p>Lorem ipsum aute ut ullamco et nisi ad. </p>
+											<span class="name"> <?php echo $app->nama; ?></span>
+											<p><?php echo $app->comment; ?> </p>
 											<p>
 												<h5> File Pengantar </h5>
 											</p>
 											<p>
-												<button class="btn-block btn btn-primary">Download File </button>
+												<a href="" class="btn-block btn btn-primary">Download File </a>
 											</p>
 											<span class="time">
 												12 minutes ago
 											</span>
 										</div>
 									</li>
-									<li class="left">
-										<div class="image">
-											<img src="img/demo/user-1.jpg" alt="">
-										</div>
-										<div class="message">
-											<span class="caret"></span>
-											<span class="name">Jane Doe</span>
-											<p>Lorem ipsum aute ut ullamco et nisi ad. </p>
-											<p>
-												<h5> File Pengantar </h5>
-											</p>
-											<p>
-												<button class="btn-block btn btn-primary">Download File </button>
-											</p>
-											<span class="time">
-												12 minutes ago
-											</span>
-										</div>
-									</li>
+								</ul>
+								<?php endforeach; ?>
+								<?php else: ?>   
+								<h4 class="text-center"> Belum ada yang mengajukan untuk mengerjakan proyek ini </h4>
+								<?php endif; ?>
 									<!--
 									<li class="insert">
 										digunakaan bagi user untuk mealkukan pengajuan

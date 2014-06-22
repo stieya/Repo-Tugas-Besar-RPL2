@@ -625,11 +625,19 @@ class CI_Upload {
 			{
 				return TRUE;
 			}
+
+			if($this->file_type == 'application/octet-stream' ){
+				return TRUE;
+			}
+			
+
 		}
 		elseif ($mime == $this->file_type)
 		{
 				return TRUE;
 		}
+
+
 
 		return FALSE;
 	}

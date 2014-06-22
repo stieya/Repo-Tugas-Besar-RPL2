@@ -4,14 +4,14 @@
 			<ul class='main-nav'>
 				<?php if($halaman == 'dashboard') : ?>
 				<li class='active'>
-					<a href="<?php echo site_url(); ?>index.html">
+					<a href="<?php echo site_url(); ?>company">
 						<i class="icon-home"></i>
 						<span>Dashboard</span>
 					</a>
 				</li>
 				<?php else : ?>
 				<li class=''>
-					<a href="<?php echo site_url(); ?>index.html">
+					<a href="<?php echo site_url(); ?>company">
 						<i class="icon-home"></i>
 						<span>Dashboard</span>
 					</a>
@@ -72,7 +72,14 @@
 			</ul>
 			<div class="user">
 				<div class="dropdown asdf">
-					<a href="<?php echo site_url(); ?>#" class='dropdown-toggle' data-toggle="dropdown"><?php echo $this->session->userdata['email']; ?> <img src="<?php echo base_url(); ?>img/demo/user-avatar.jpg" alt=""></a>
+					<a href="<?php echo site_url(); ?>#" class='dropdown-toggle' data-toggle="dropdown"><?php echo $this->session->userdata['email']; ?> 
+						<?php if(!is_null($info->perusahaan->foto_user)) : ?>
+						<img src="<?php echo base_url().'images/company/'.$this->session->userdata('id_user').'/'.$info->perusahaan->foto_user; ?>" alt="" style="width:27px;height:27px;">
+						<?php else : ?>
+						<img src="<?php echo base_url(); ?>img/no_image.png" alt="" style="width:27px;height:27px;">
+						<?php  endif; ?>
+						
+					</a>
 					<ul class="dropdown-menu pull-right">
 						<li>
 							<a href="<?php echo site_url(); ?>company/profile/edit">Edit profile</a>
