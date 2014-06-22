@@ -24,10 +24,29 @@
 
 }
 
+.joblist .accordion-heading.unfinished{
+
+	background: #f8a31f !important;
+}
+
+.joblist .accordion-heading.unfinished a {
+
+	color: #fff;
+
+}
+
 .joblist .accordion-heading a:hover {
 	text-decoration: none;
 }
 
 .joblist .accordion-heading.finished a:hover {
 	text-decoration: none;
+}
+
+.subnav_menu .control-group{
+	width: 100%;
+}
+
+#left .subnav .subnav-menu>li>.control-group{
+	margin-left: 30px;
 }

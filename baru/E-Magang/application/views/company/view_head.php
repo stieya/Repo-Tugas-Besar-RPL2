@@ -43,7 +43,7 @@
 	<script src="<?php echo base_url(); ?>js/plugins/jquery-ui/jquery.ui.widget.min.js"></script>
 	<script src="<?php echo base_url(); ?>js/plugins/jquery-ui/jquery.ui.mouse.min.js"></script>
 	<script src="<?php echo base_url(); ?>js/plugins/jquery-ui/jquery.ui.draggable.min.js"></script>
-	<script src="<?php echo base_url(); ?>js/plugins/jquery-ui/jquery.ui.resizable.min.js"></script>
+	
 	<script src="<?php echo base_url(); ?>js/plugins/jquery-ui/jquery.ui.sortable.min.js"></script>
 	<!-- Touch enable for jquery UI -->
 	<script src="<?php echo base_url(); ?>js/plugins/touch-punch/jquery.touch-punch.min.js"></script>
@@ -57,7 +57,7 @@
 	<script src="<?php echo base_url(); ?>js/plugins/flot/jquery.flot.min.js"></script>
 	<script src="<?php echo base_url(); ?>js/plugins/flot/jquery.flot.bar.order.min.js"></script>
 	<script src="<?php echo base_url(); ?>js/plugins/flot/jquery.flot.pie.min.js"></script>
-	<script src="<?php echo base_url(); ?>js/plugins/flot/jquery.flot.resize.min.js"></script>
+	
 	<!-- imagesLoaded -->
 	<script src="<?php echo base_url(); ?>js/plugins/imagesLoaded/jquery.imagesloaded.min.js"></script>
 	<!-- PageGuide -->

@@ -55,7 +55,7 @@ class MY_Model extends CI_Model {
 
 		if($this->_timestamp == TRUE){
 
-			$now = data('Y-m-d H:i:s');
+			$now = date('Y-m-d H:i:s');
 			$data['tanggal_masuk'] = $now;
 			//$data['modified'] = $now;
 

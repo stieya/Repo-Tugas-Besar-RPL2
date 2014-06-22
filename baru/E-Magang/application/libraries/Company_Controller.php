@@ -2,6 +2,8 @@
 
 class Company_Controller extends MY_Controller {
 
+
+	public $infocompany = "";
 	public function __construct()
 	{
 		parent::__construct();
@@ -28,6 +30,9 @@ class Company_Controller extends MY_Controller {
 		$restricted_uris = array('company/signup','company/login');
 
 		if($this->company_m->loggedin() == TRUE){
+
+			$this->infocompany = $this->company_m->getinfo();
+
 			if($this->session->userdata('status_user') == 'STUDENT'){
 				redirect('user/');
 			}

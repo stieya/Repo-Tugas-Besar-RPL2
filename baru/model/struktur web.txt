@@ -14,12 +14,12 @@ www.magang.com/admin/block/company/{id_company}
 
 
 
-www.magang.com/user						-> halaman awal user/ dashboard
-www.magang.com/user/signup					-> mendaftarkan sebagai user
-www.magang.com/user/login					-> login sebagai user
-www.magang.com/user/logout					->logout user
-www.magang.com/user/profile/					->lihat profile
-www.magang.com/user/profile/edit				->edit profile 
+//www.magang.com/user						-> halaman awal user/ dashboard
+//www.magang.com/user/signup					-> mendaftarkan sebagai user
+//www.magang.com/user/login					-> login sebagai user
+//www.magang.com/user/logout					->logout user
+//www.magang.com/user/profile/					->lihat profile
+//www.magang.com/user/profile/edit				->edit profile 
 www.magang.com/user/search/{berikut parameter lainnya} 		->mencari jobsheet
 www.magang.com/user/company					-> melihat daftar company yang dimana terikat kontrak dengannya.
 www.magang.com/user/company/{id_company} 			-> melihat daftar jobsheet dari company
@@ -34,21 +34,21 @@ www.magang.com/user/message/delete/{id_pemilik pesan}/{id_pesan} -> menghapus sa
 www.magang.com/user/notifikasi/					->melihat daftar notifikasi
 
 
-www.magang.com/company						-> halaman awal company/dashboard
-www.magang.com/company/signup					-> mendaftar sebagi company
-www.magang.com/company/login					-> login sebagai company
-www.magang.com/company/logout					-> logout company
-www.magang.com/company/profile					-> melihat detail profile perusahaan
-www.magang.com/company/profile/edit				-> merubah profile perusahaan
-www.magang.com/company/jobsheet/				-> melihat daftar jobsheet yang sudah dibuat, beserta statusnya.
-www.magang.com/company/jobsheet/newjobsheet/				-> membuat jobsheet baru
-www.magang.com/company/jobsheet/{id_jobshet}			-> melihat detail jobhseet
-www.magang.com/company/jobsheet/edit/{id_jobsheet}		-> mengedit jobsheet
-www.magang.com/company/jobsheet/hapus/{id_jobsheet}		-> menghapus jobsheet
+www.magang.com/company						-> halaman awal company/dashboard (udah) 
+www.magang.com/company/signup					-> mendaftar sebagi company (udah)
+www.magang.com/company/login					-> login sebagai company (udah)
+www.magang.com/company/logout					-> logout company (udah)
+www.magang.com/company/profile					-> melihat detail profile perusahaan (udah)
+www.magang.com/company/profile/edit				-> merubah profile perusahaan (udah)
+www.magang.com/company/jobsheet/				-> melihat daftar jobsheet yang sudah dibuat, beserta statusnya.(udah)
+www.magang.com/company/jobsheet/newjobsheet/			-> membuat jobsheet baru(udah)
+www.magang.com/company/jobsheet/{id_jobshet}			-> melihat detail jobhseet(udah)
+www.magang.com/company/jobsheet/edit/{id_jobsheet}		-> mengedit jobsheet (udah)
+www.magang.com/company/jobsheet/hapus/{id_jobsheet}		-> menghapus jobsheet(udah)
 www.magang.com/company/jobsheet/{id_jobsheet}/{id_joblist}	-> melihat detail job list,download file dari user.
-www.magang.com/company/joblist/newjoblist/{id_jobsheet}		-> menambah job list dari jobsheet
-www.magang.com/company/joblist/edit/{id_jobsheet}/{id_joblist}	-> merubah isi joblist,merubah status joblist,tidak dapat merubah isi joblist apabila status sudah selesai.
-www.magang.com/company/joblist/hapus/{id_jobsheet}/{id_joblist} -> menghapus salah satu joblist
+www.magang.com/company/joblist/newjoblist/{id_jobsheet}		-> menambah job list dari jobsheet(udah)
+www.magang.com/company/joblist/edit/{id_jobsheet}/{id_joblist}	-> merubah isi joblist,merubah status joblist,tidak dapat merubah isi joblist apabila status sudah selesai. (udah)
+www.magang.com/company/joblist/hapus/{id_jobsheet}/{id_joblist} -> menghapus salah satu joblist (udah)
 www.magang.com/company/message					-> melihat daftar pengirim pesan dari user/perusahaan yang mengirimi pesan
 www.magang.com/company/message/{id_pemilik pesan}			-> melihat daftar pesan dari si pemilik pesan, mengirim pesan.
 www.magang.com/company/message/hapus/{id_pemilik pesan}		-> menghapus pengirimin pesan beserta pesan-pesannya,
