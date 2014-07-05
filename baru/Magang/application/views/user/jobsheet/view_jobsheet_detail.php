@@ -15,6 +15,10 @@
 						</div>					
 					</div>
 				</div>
+				<?php
+					if ($hal == 1 && count($js->app) < 1)
+					{
+				?>
 				<div class="row-fluid">
 					<div class="span12">
 						<div class="box">
@@ -22,10 +26,7 @@
 								<h3>Lamaran Anda</h3>
 							</div>										
 							<div class="box-content">
-								<?php
-									if (count($js->app) < 1)
-									{
-								?>
+								
 								<?php
 									echo form_open_multipart('user/jobsheet/upload/'.$js->jobsheet->id_job_sheet.'/'.'0'.'/'.'0'.'/detail');
 								?>
@@ -42,37 +43,16 @@
 								<div class="submit">
 									<input class="btn" type="submit" value="Upload">
 								</div>
-								<?php echo form_close();?>
 								<?php
-									}
-									else
-									{
-								?>
-								<div class="text">
-									Keterangan :
-									<?php
-									if (is_null($js->app->comment))
-									{
-										echo "Tidak ada keterangan";
-									}
-									else
-									{
-										echo $js->app->comment;
-									}
-									?>
-
-								</div>
-								<br />
-								<div class="text">
-									<a href="<?php echo base_url().$js->app->application_file ?>" class="btn">Download File </a>
-								</div>
-								<?php
-									}
-								?>						
+									echo form_close();
+								?>				
 							</div>
 						</div>					
 					</div>
 				</div>
+				<?php
+					}
+				?>
 				<div class="row-fluid">
 					<div class="span12">
 						<div class="box">
@@ -116,9 +96,16 @@
 																	<div class="box">
 																		<div class="box-title">
 																			<h3> Deskripsi Tugas </h3>
+																			<?php 
+																				if (is_null($hal))
+																				{
+																			?>
 																			<div class="actions">
 																				<a href="<?php echo $js->jobsheet->id_job_sheet.'/'.$jl->id_job_list ?>" class="btn btn-large "><i class="icon-tasks"></i></a>
 																			</div>
+																			<?php
+																				}
+																			?>
 																		</div>										
 																		<div class="box-content">
 																			
@@ -158,6 +145,10 @@
 																					?>
 																				</p>
 																			</div>
+																			<?php 
+																				if (is_null($hal))
+																				{
+																			?>
 																			<div class="search-info">							
 																				<p>
 																					<b>File anda</b>
@@ -178,7 +169,10 @@
 																						}
 																					?>
 																				</p>
-																			</div>							
+																			</div>
+																			<?php
+																				}
+																			?>							
 																		</div>
 																	</div>					
 																</div>

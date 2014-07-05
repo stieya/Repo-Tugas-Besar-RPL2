@@ -118,16 +118,29 @@
 								<?php if($jenis == 'perusahaan') : ?>
 								<div class="search-results">
 									<ul>
-										<?php foreach($search as $res ) : ?>
+										<?php foreach($search as $res ) : 
+											if ($res->foto_user == "")
+												{
+													$fotos = "img/no_image.png";
+												}
+												else
+												{
+													$fotos = $res->foto_user;
+												}
+
+										?>
+
 										<li>
 											<div class="thumbnail">
 												<img src="" alt="">
-												<img src="<?php echo base_url().'images/company/'.$res->id_user.'/'.$res->foto_user; ?>" style="width:50px;height:60px;" alt="">
+												<img src="<?php echo base_url().$fotos; ?>" style="width:50px;height:60px;" alt="">
 											</div>
 											<div class="search-info">
 												<a href="<?php echo base_url().'user/company/'.$res->id_perusahaan; ?>"><?php echo $res->nama; ?></a>
 												<p class="url"> www.<?php echo $res->website ; ?>/</p>
-												<p>Lorem ipsum minim quis mollit occaecat consectetur irure. Lorem ipsum officia Excepteur ut aliqua cillum est laboris. Lorem ipsum in exercitation enim veniam exercitation consectetur. Lorem ipsum cupidatat ea culpa cupidatat sed proident officia consequat irure dolore Excepteur consectetur. Lorem ipsum sunt ut aliquip commodo mollit ad culpa. Lorem ipsum aliquip sit laborum reprehenderit amet et anim pariatur. Lorem ipsum Ut quis irure enim quis commodo ullamco ad qui qui ut id. </p>
+												<p>
+													<?php echo $res->about; ?>
+												</p>
 											</div>
 										</li>
 										<?php endforeach; ?>
@@ -162,7 +175,7 @@
 														</div>
 														<div class="right">
 															<p>
-																<a href="<?php echo base_url().'user/jobsheet/detail/'.$res->id_job_sheet; ?>" class="btn btn-warning">Detail</a>
+																<a href="<?php echo base_url().'user/jobsheet/detail/'.$res->id_job_sheet.'/0/1'; ?>" class="btn btn-warning">Detail</a>
 															</p>
 															<h6>
 																Durasi : 120 Hari

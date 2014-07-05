@@ -3,7 +3,18 @@
 				<div class="page-header">
 					<div class="pull-left">
 						<h1>Profil</h1>
-						
+						<?php
+						if ($profil->hal != "student") 
+						{
+						?>
+						<ul class="stats">
+							<li class='blue'>
+								<a href="<?php echo base_url().'user/message/company/'.$profil->profile->id_perusahaan; ?>"><i class="icon-envelope"></i></a>
+							</li>
+						</ul>
+						<?php
+						}
+						?>
 					</div>
 				</div>
 				<?php
@@ -13,7 +24,7 @@
 				<a href="profile/edit/"><button type="submit" class="btn btn-primary">Ubah</button></a>
 				<div class="row-fluid">
 					<div class="span6">
-						<div class="box box-bordered">
+						<div class="box box-color box-bordered">
 							<div class="box-title">
 								<h3>
 									<i class="icon-reorder"></i>
@@ -76,7 +87,7 @@
 						</div>
 					</div>
 					<div class="span6">
-						<div class="box box-bordered">
+						<div class="box box-color box-bordered">
 							<div class="box-title">
 								<h3>
 									<i class="icon-reorder"></i>
@@ -134,7 +145,7 @@
 				?>
 				<div class="row-fluid">
 					<div class="span6">
-						<div class="box box-bordered">
+						<div class="box box-color box-bordered">
 							<div class="box-title">
 								<h3>
 									<i class="icon-reorder"></i>

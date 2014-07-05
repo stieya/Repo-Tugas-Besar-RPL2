@@ -160,13 +160,21 @@
 										foreach ($comment->komentar as $komen)
 										{
 									?>
-										<?php 
+										<?php
+											if ($komen->foto_user == "") 
+											{
+												$fotos = "img/no_image.png";
+											}
+											else
+											{
+												$fotos = $komen->foto_user;
+											}
 											if ($komen->status_user == "STUDENT")
 											{
 										?>
 									<li class="left">
 										<div class="image">
-											<img src="<?php echo base_url().$komen->foto_user; ?>" alt="">
+											<img src="<?php echo base_url().$fotos; ?>" alt="">
 										</div>
 										<div class="message">
 											<span class="caret"></span>
@@ -184,7 +192,7 @@
 										?>
 									<li class="right">
 										<div class="image">
-											<img src="<?php echo base_url().$komen->foto_user; ?>" alt="">
+											<img src="<?php echo base_url().$fotos; ?>" alt="">
 										</div>
 										<div class="message">
 											<span class="caret"></span>

@@ -37,7 +37,7 @@
 										</div>
 										<div class="right">
 											<p>
-												<a href="<?php echo $js->id_perusahaan.'/'.$js->id_job_sheet ?>" class="btn btn-warning">Detail</a>
+												<a href="<?php echo base_url().'user/jobsheet/detail/'.$js->id_job_sheet ?>" class="btn btn-warning">Detail</a>
 											</p>
 											<h6>
 												Durasi : <?php echo $js->durasi ?> Hari

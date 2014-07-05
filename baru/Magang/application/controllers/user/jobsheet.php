@@ -13,13 +13,14 @@ class Jobsheet extends User_Controller {
 		$this->load->view('user/jobsheet/view_jobsheet',$data);
 	}
 
-	public function detail($id_jobsheet = NULL, $id_joblist = NULL)
+	public function detail($id_jobsheet = NULL, $id_joblist = 0, $hal = NULL)
 	{
-		if ($id_joblist == NULL) 
+		if ($id_joblist == 0) 
 		{
 			$akt['aktif'] = 'jobsheet';
 			$akt['pesan'] = $this->user_m->listPesan();
-			$data['js'] = $this->user_m->detail_jobsheet($id_jobsheet);
+			$data['js'] = $this->user_m->detail_jobsheet($id_jobsheet,$hal);
+			$data['hal'] = $hal;
 			$this->load->view('user/view_head');
 			$this->load->view('user/view_nav',$akt);
 			$this->load->view('user/view_side');
@@ -79,7 +80,7 @@ class Jobsheet extends User_Controller {
 			$this->user_m->upload($file,$id_joblist,$id_student_joblist,$id_jobsheet,$hal);
 			if ($hal == "detail")
 			{
-				redirect('user/jobsheet/detail/'.$id_jobsheet);
+				redirect('user/');
 			}
 			else
 			{

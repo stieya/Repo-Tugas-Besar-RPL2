@@ -65,7 +65,7 @@
 										</div>
 										<div class="right">
 											<p>
-												<a href="<?php echo 'detail/'.$js['id_job_sheet'] ?>" class="btn btn-warning">Detail</a>
+												<a href="<?php echo 'detail/'.$js['id_job_sheet']; ?>" class="btn btn-warning">Detail</a>
 											</p>
 											<h6>
 												Durasi : <?php echo $js['durasi'] ?> Hari

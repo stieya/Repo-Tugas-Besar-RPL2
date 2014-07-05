@@ -3,7 +3,6 @@
 	$(document).ready(function(){
 
 		$('#cariside').on('submit',function(event){
-			alert('zakky ganteng');
 			event.preventDefault();
 			if($('#sidestring') != ''){
 				window.location.href = "<?php echo base_url()?>user/search/0/perusahaan/"+$('#sidestring').val();

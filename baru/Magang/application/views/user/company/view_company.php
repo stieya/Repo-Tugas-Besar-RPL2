@@ -7,30 +7,41 @@
 					</div>
 				</div>
 				<div class="row-fluid">
-					<div class="span6">
-						<div class="box box-bordered">
-							<div class="box-title">
-								<h3>
-									<i class="icon-reorder"></i>
-									Perusahaan
-								</h3>
-								<div class="actions">
-									<a href="#" class="btn btn-mini content-slideUp"><i class="icon-angle-down"></i></a>
+					<div class="span12">
+							<div class="search-results">
+									<ul>
+										<?php
+											foreach($company as $perusahaan ) 
+											{
+												if ($perusahaan->foto_user == "")
+												{
+													$fotos = "img/no_image.png";
+												}
+												else
+												{
+													$fotos = $perusahaan->foto_user;
+												}
+										?>
+										<li>
+											<div class="thumbnail">
+												<img src="" alt="">
+												<img src="<?php echo base_url().$fotos; ?>" style="width:50px;height:60px;" alt="">
+											</div>
+											<div class="search-info">
+												<a href="<?php echo $perusahaan->id_perusahaan; ?>"><?php echo $perusahaan->nama; ?></a>
+												<p class="url"> www.<?php echo $perusahaan->website ; ?>/</p>
+												<p>
+													<?php
+														echo $perusahaan->about;
+													?>
+												</p>
+											</div>
+										</li>
+										<?php
+											}
+										?>
+									</ul>
 								</div>
-							</div>
-							<div class="box-content">
-								<table class="table table-hover">
-									<tbody>
-									<?php foreach($company as $perusahaan):?>
-										<tr>
-											<td class='hidden-480'><a href="<?php echo site_url();?>user/company/<?php echo $perusahaan->id_perusahaan;?>"><?php echo $perusahaan->nama;?></a></td>
-										</tr>
-									<?php endforeach;?>
-										
-									</tbody>
-								</table>
-							</div>
-						</div>
 					</div>
 					
 				</div>
