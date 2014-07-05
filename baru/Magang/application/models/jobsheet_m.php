@@ -72,7 +72,7 @@ class Jobsheet_m extends MY_Model {
 		$data = new stdClass();
 		$data->jobsheetdetail = $result;
 		$data->jobsheetlist = $result2;
-		
+		//var_dump($data);
 		return $data;
 	}
 
@@ -117,6 +117,7 @@ class Jobsheet_m extends MY_Model {
 
 		$this->db->select()->from('t_student_job_sheet')
 					->where('id_job_sheet',$id_job_sheet);
+					//->where('status',0);
 
 		$result = $this->db->get()->row();
 
@@ -130,6 +131,7 @@ class Jobsheet_m extends MY_Model {
 					->where('id_job_sheet',mysql_real_escape_string($id_job_sheet));
 			
 		$data = $this->db->get()->result();
+		//var_dump($data);
 		return $data;
 	}
 

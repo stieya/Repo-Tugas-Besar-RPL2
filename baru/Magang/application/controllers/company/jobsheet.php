@@ -243,10 +243,6 @@ class Jobsheet extends Company_Controller {
 
 
 	public function accept($id_job_sheet = NULL ,$id_student = NULL){
-
-
-
-
 		
 		if($id_student != NULL && $id_student != NULL){
 
@@ -254,7 +250,7 @@ class Jobsheet extends Company_Controller {
 				->where('id_job_sheet',$id_job_sheet)
 				->where('id_student',$id_student)
 				->where('status',0);
-			if(count($this->db->get()->result() > 0)){
+			if(count($this->db->get()->result()) > 0){
 
 				$this->db->select()->from('t_job_sheet_application')
 				->where('id_job_sheet',$id_job_sheet)
@@ -289,7 +285,7 @@ class Jobsheet extends Company_Controller {
 							$this->db->set($data);
 							if($this->db->update('t_job_sheet')){
 								$data['id_job_sheet'] = $id_job_sheet;
-								$this->load->view('company/jobsheet/view_acceptemploye',$data);
+								$this->load->view('company/job_sheet/view_acceptemploye',$data);
 							}
 						}
 					}

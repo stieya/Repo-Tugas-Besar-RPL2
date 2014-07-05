@@ -15,7 +15,7 @@ class Dashboard extends Company_Controller {
 		$format = 'DATE_COOKIE';
 			timezones('UP7');
 			$time = time();
-			$data['tanggal'] = substr(standard_date($format,$time),0,18);
+			$data['tanggal'] = substr(standard_date($format,$time),0,19);
 		//var_dump($data);
 		$this->load->view('company/view_head');
 		$this->load->view('company/view_nav',$nav);

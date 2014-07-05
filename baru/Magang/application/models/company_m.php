@@ -138,7 +138,7 @@ class Company_m extends MY_Model {
 
 	public function getInfo(){
 			
-			$query = $this->db->select('id_perusahaan,foto_user,t_kota.nama AS nama_kota,email,tanggal_masuk,t_perusahaan.nama AS nama_perusahaan,alamat,t_perusahaan.id_kota AS id_kota,t_kota.nama ,kode_pos,telepon,t_user.id_user AS id_user,website,id_provinsi')
+			$query = $this->db->select('id_perusahaan,foto_user,t_kota.nama AS nama_kota,email,tanggal_masuk,t_perusahaan.nama AS nama_perusahaan,alamat,t_perusahaan.id_kota AS id_kota,t_kota.nama ,kode_pos,telepon,t_user.id_user AS id_user,website,id_provinsi,about')
 								->from('t_perusahaan')
 								->join('t_user','t_perusahaan.id_user = t_user.id_user')
 								->join('t_kota','t_perusahaan.id_kota = t_kota.id_kota')

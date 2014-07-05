@@ -40,6 +40,11 @@ class Profile extends Company_Controller {
 			'Label' => 'Your Company Addres',
 			'rules' => 'trim|required|min_length[10]|max_length[50]|required|xss_clean|',
 			),
+		'about' => array(
+			'field' => 'about',
+			'Label' => 'Your Company Detail',
+			'rules' => 'trim|min_length[10]|max_length[1300]|xss_clean|',
+			),
 		);  
 
 	public function index($id_user = NULL)
@@ -131,6 +136,7 @@ class Profile extends Company_Controller {
 						'kode_pos' => $this->input->post('kode_pos'),
 						'alamat' => $this->input->post('alamat'),
 						'id_kota' => $this->input->post('kota'),
+						'about' => $this->input->post('about'),
 						);
 					$this->company_m->table = 't_perusahaan';
 					$this->company_m->primary = 'id_perusahaan';
@@ -158,6 +164,7 @@ class Profile extends Company_Controller {
 					'kode_pos' => $this->input->post('kode_pos'),
 					'alamat' => $this->input->post('alamat'),
 					'id_kota' => $this->input->post('kota'),
+					'about' => $this->input->post('about'),
 					);
 				$this->company_m->table = 't_perusahaan';
 				$this->company_m->primary = 'id_perusahaan';
