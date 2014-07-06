@@ -95,6 +95,23 @@
 							</div>
 						</div>
 					</div>
+	
+					<div class="row-fluid">
+						<div class="span12">
+							<div class="box box-bordered">
+								<div class="box-title">
+									<h3>
+										<i class="icon-user-md"></i> 
+										tentang
+									</h3>
+								</div>
+								<div class="box-content">
+									<?php echo $perusahaan->perusahaan->about; ?>
+								</div>
+							</div>
+						</div>
+					</div>
+
 				</div>
 			</div>
 		</div>

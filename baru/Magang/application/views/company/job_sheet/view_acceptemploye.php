@@ -73,9 +73,7 @@
 			</div>
 			<div class="modal-body text-center">
 				<p>
-					Job List <?php echo $data->head; ?> Dari Job Sheet <?php echo $data->nama_job_sheet; ?> Telah Diubah Statusnya Menjadi Selesai.
-
-					Dalam 5 Detik Anda Akan Dikirim Kembali Ke halaman Job Sheet <?php echo $data->nama_job_sheet; ?>. Jika Dalam 5 Detik Tidak Terjadi Apa-Apa Silahkan Klik Link Dibawah Ini.
+					JobSheet ini sekarang berada dalam status sedang dikerjakan.
 				</p>
 				<p>
 					<a href="">Kembali Ke Halaman Sebelumnya</a>
@@ -90,7 +88,7 @@
 	<script type="text/javascript">
 	$(document).ready(function(){
 		setTimeout(function(){
-			window.location.href = 'http://localhost/E-Magang/company/jobsheet/<?php echo $id_job_sheet;?>';
+			window.location.href = '<?php echo base_url(); ?>company/dashboard';
 		},4000);
 	});
 	

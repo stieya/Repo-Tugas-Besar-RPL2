@@ -189,7 +189,7 @@
 					</div>
 				</div>
 				<?php else : ?>	
-				<?php if($jobsheets->jobsheetdetail->status = 'Finished' ) : ?>
+				<?php if($jobsheets->jobsheetdetail->status == 'Finished' ) : ?>
 				<div class="row-fluid">
 					<div class="span12">
 						<div class="box">

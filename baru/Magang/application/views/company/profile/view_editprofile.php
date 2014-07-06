@@ -95,6 +95,14 @@
 											</select>
 										</div>
 									</div>
+									<div class="control-group">
+										<label for="select" class="control-label">Tentang Perusahaan Anda</label>
+										<div class="controls">
+										
+											<textarea name="about" id="textarea" rows="5" class="input-block-level"><?php echo $perusahaan->perusahaan->about; ?> </textarea>
+										
+										</div>
+									</div>
 									<div class="form-actions">
 										<input type="submit" class="btn btn-primary" value="Save changes">
 									</div>
