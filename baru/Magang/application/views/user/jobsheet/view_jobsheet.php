@@ -61,7 +61,17 @@
 									<div class="top">
 										<div class="left">
 											<a href="<?php echo base_url().'user/profile/'.$js['id_perusahaan'] ?>"><h5> <?php echo $js['nama_perusahaan'] ?> </h5></a>
-											<h5> <?php echo $js['nama_jurusan'] ?> </h5>
+											<h5><?php
+													if (is_null($js['nama_jurusan'])) 
+													{
+													 	echo 'Umum';
+													} 
+													else
+													{
+													echo $js['nama_jurusan'];
+													} 
+												?> 
+											</h5>
 										</div>
 										<div class="right">
 											<p>

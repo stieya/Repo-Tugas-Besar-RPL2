@@ -178,7 +178,7 @@
 										</div>
 										<div class="message">
 											<span class="caret"></span>
-											<span class="name"><?php echo $komen->nama ?></span>
+											<span class="name"><?php echo $komen->nama_student ?></span>
 											<p><?php echo $komen->isi_comment ?></p>
 											<span class="time">
 												<?php echo $komen->waktu_comment ?>
@@ -196,7 +196,7 @@
 										</div>
 										<div class="message">
 											<span class="caret"></span>
-											<span class="name"><?php echo $komen->nama ?></span>
+											<span class="name"><?php echo $komen->nama_perusahaan ?></span>
 											<p><?php echo $komen->isi_comment ?></p>
 											<span class="time">
 												<?php echo $komen->waktu_comment ?>

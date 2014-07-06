@@ -127,7 +127,7 @@ class User_m extends CI_Model
 		$this->db->join('t_message as m1','m1.id_user_pengirim = t_message.id_user_pengirim AND m1.id_message > t_message.id_message','left outer');
 		$this->db->join('t_user','t_user.id_user = t_message.id_user_pengirim');
 		$this->db->join('t_student', 't_student.id_user = t_user.id_user');
-		$this->db->where('t_message.id_user_penerima',$this->session->userdata['id_student']);
+		$this->db->where('t_message.id_user_penerima',$this->session->userdata['id_user']);
 		$this->db->where('m1.id_message is NULL');
 		$this->db->where('t_message.status','0');
 		$this->db->where('t_user.status_user','STUDENT');
@@ -139,7 +139,7 @@ class User_m extends CI_Model
 		$this->db->join('t_message as m1','m1.id_user_pengirim = t_message.id_user_pengirim AND m1.id_message > t_message.id_message','left outer');
 		$this->db->join('t_user','t_user.id_user = t_message.id_user_pengirim');
 		$this->db->join('t_perusahaan', 't_perusahaan.id_user = t_user.id_user');
-		$this->db->where('t_message.id_user_penerima',$this->session->userdata['id_student']);
+		$this->db->where('t_message.id_user_penerima',$this->session->userdata['id_user']);
 		$this->db->where('m1.id_message is NULL');
 		$this->db->where('t_message.status','0');
 		$this->db->where('t_user.status_user','COMPANY');
@@ -162,7 +162,7 @@ class User_m extends CI_Model
 		$this->db->join('t_message as m1','m1.id_user_pengirim = t_message.id_user_pengirim AND m1.id_message > t_message.id_message','left outer');
 		$this->db->join('t_user','t_user.id_user = t_message.id_user_pengirim');
 		$this->db->join('t_student', 't_student.id_user = t_user.id_user');
-		$this->db->where('t_message.id_user_penerima',$this->session->userdata['id_student']);
+		$this->db->where('t_message.id_user_penerima',$this->session->userdata['id_user']);
 		$this->db->where('m1.id_message is NULL');
 		$this->db->where('t_user.status_user','STUDENT');
 		$this->db->order_by('t_message.tanggal','desc');
@@ -173,7 +173,7 @@ class User_m extends CI_Model
 		$this->db->join('t_message as m1','m1.id_user_pengirim = t_message.id_user_pengirim AND m1.id_message > t_message.id_message','left outer');
 		$this->db->join('t_user','t_user.id_user = t_message.id_user_pengirim');
 		$this->db->join('t_perusahaan', 't_perusahaan.id_user = t_user.id_user');
-		$this->db->where('t_message.id_user_penerima',$this->session->userdata['id_student']);
+		$this->db->where('t_message.id_user_penerima',$this->session->userdata['id_user']);
 		$this->db->where('m1.id_message is NULL');
 		$this->db->where('t_user.status_user','COMPANY');
 		$this->db->order_by('t_message.tanggal','desc');
@@ -214,9 +214,9 @@ class User_m extends CI_Model
 			$this->db->from('t_message');
 			$this->db->join('t_user','t_user.id_user = t_message.id_user_pengirim');
 			$this->db->join('t_student', 't_student.id_user = t_user.id_user');
-			$this->db->where('t_message.id_user_penerima',$this->session->userdata['id_student']);
+			$this->db->where('t_message.id_user_penerima',$this->session->userdata['id_user']);
 			$this->db->where('t_message.id_user_pengirim',$id_user_pengirim);
-			$this->db->or_where('t_message.id_user_pengirim',$this->session->userdata['id_student']);
+			$this->db->or_where('t_message.id_user_pengirim',$this->session->userdata['id_user']);
 			$this->db->where('t_message.id_user_penerima',$id_user_pengirim);
 			$result = $this->db->get()->result();
 		}
@@ -224,11 +224,11 @@ class User_m extends CI_Model
 		{
 			$this->db->select();
 			$this->db->from('t_message');
-			$this->db->join('t_user','t_user.id_user = t_message.id_user_pengirim');
-			$this->db->join('t_perusahaan', 't_perusahaan.id_user = t_user.id_user');
-			$this->db->where('t_message.id_user_penerima',$this->session->userdata['id_student']);
+			$this->db->join('t_user','t_user.id_user = t_message.id_user_pengirim','left');
+			$this->db->join('t_perusahaan', 't_perusahaan.id_user = t_user.id_user','left');
+			$this->db->where('t_message.id_user_penerima',$this->session->userdata['id_user']);
 			$this->db->where('t_message.id_user_pengirim',$id_user_pengirim);
-			$this->db->or_where('t_message.id_user_pengirim',$this->session->userdata['id_student']);
+			$this->db->or_where('t_message.id_user_pengirim',$this->session->userdata['id_user']);
 			$this->db->where('t_message.id_user_penerima',$id_user_pengirim);
 			$result = $this->db->get()->result();
 		}
@@ -239,7 +239,7 @@ class User_m extends CI_Model
 			$value = array('1',$this->session->userdata['id_user'],$id_user_pengirim);
 			$this->db->query($sql,$value);	
 		}
-
+		
 		$data = new stdClass;
 		$data->pesan = $result;
 		$data->pengirim = $id_user_pengirim;
@@ -270,7 +270,7 @@ class User_m extends CI_Model
 		{
 			$this->db->select();
 			$this->db->from('t_job_sheet');
-			$this->db->join('t_jurusan','t_jurusan.id_jurusan = t_job_sheet.id_jurusan');
+			$this->db->join('t_jurusan','t_jurusan.id_jurusan = t_job_sheet.id_jurusan','left');
 			$this->db->where('t_job_sheet.id_perusahaan',$id_company);
 			$this->db->where('t_job_sheet.id_job_sheet',$id_jobsheet);
 			$result = $this->db->get()->row();
@@ -280,7 +280,7 @@ class User_m extends CI_Model
 			$this->db->select();
 			$this->db->from('t_job_sheet');
 			$this->db->join('t_student_job_sheet','t_student_job_sheet.id_job_sheet = t_job_sheet.id_job_sheet');
-			$this->db->join('t_jurusan','t_jurusan.id_jurusan = t_job_sheet.id_jurusan');
+			$this->db->join('t_jurusan','t_jurusan.id_jurusan = t_job_sheet.id_jurusan','left');
 			$this->db->where('t_job_sheet.id_perusahaan',$id_company);
 			$this->db->where('t_student_job_sheet.id_student',$this->session->userdata['id_student']);
 			$result = $this->db->get()->result();
@@ -330,7 +330,7 @@ class User_m extends CI_Model
 			$this->db->where('t_student.id_student',$this->session->userdata['id_student']);
 			$this->db->join('t_kota','t_kota.id_kota = t_student.id_kota');
 			$this->db->join('t_universitas','t_universitas.id_universitas = t_student.id_universitas');
-			$this->db->join('t_jurusan','t_jurusan.id_jurusan = t_student.id_jurusan');
+			$this->db->join('t_jurusan','t_jurusan.id_jurusan = t_student.id_jurusan','left');
 			$result = $this->db->get()->row();
 
 			$this->db->select('t_kota.nama as kotaUniv');
@@ -440,7 +440,7 @@ class User_m extends CI_Model
 		$this->db->where('t_student_job_sheet.status',1);
 		$this->db->join('t_job_sheet','t_job_sheet.id_job_sheet = t_student_job_sheet.id_job_sheet');
 		$this->db->join('t_perusahaan','t_perusahaan.id_perusahaan = t_job_sheet.id_perusahaan');
-		$this->db->join('t_jurusan','t_jurusan.id_jurusan = t_job_sheet.id_jurusan');
+		$this->db->join('t_jurusan','t_jurusan.id_jurusan = t_job_sheet.id_jurusan','left');
 		$result = $this->db->get()->result_array();
 
 		return $result;
@@ -456,7 +456,7 @@ class User_m extends CI_Model
 		$this->db->where('t_student_job_sheet.status',1);
 		$this->db->where('t_student_job_sheet.id_job_sheet',$id_job_sheet);
 		$this->db->join('t_job_sheet','t_job_sheet.id_job_sheet = t_student_job_sheet.id_job_sheet');
-		$this->db->join('t_jurusan','t_jurusan.id_jurusan = t_job_sheet.id_jurusan');
+		$this->db->join('t_jurusan','t_jurusan.id_jurusan = t_job_sheet.id_jurusan','left');
 		$result = $this->db->get()->row();
 
 		$this->db->select('t_job_sheet.nama_job_sheet,t_job_sheet.deskripsi_job_sheet,t_job_list.status,t_job_sheet.id_job_sheet,t_job_list.body,t_job_list.head,t_job_list.file_perusahaan,t_student_job_list.file_user,t_job_sheet.id_job_sheet,t_job_list.id_job_list,t_student_job_list.id_student_job_list');
@@ -472,7 +472,7 @@ class User_m extends CI_Model
 		$this->db->select();
 		$this->db->from('t_job_sheet');
 		$this->db->where('t_job_sheet.id_job_sheet',$id_job_sheet);
-		$this->db->join('t_jurusan','t_jurusan.id_jurusan = t_job_sheet.id_jurusan');
+		$this->db->join('t_jurusan','t_jurusan.id_jurusan = t_job_sheet.id_jurusan','left');
 		$result = $this->db->get()->row();
 
 		$this->db->select('t_job_sheet.nama_job_sheet,t_job_sheet.deskripsi_job_sheet,t_job_list.status,t_job_sheet.id_job_sheet,t_job_list.body,t_job_list.head,t_job_list.file_perusahaan,t_job_sheet.id_job_sheet,t_job_list.id_job_list');
@@ -504,7 +504,7 @@ class User_m extends CI_Model
 		$this->db->where('t_student_job_sheet.status',1);
 		$this->db->where('t_student_job_sheet.id_job_sheet',$id_job_sheet);
 		$this->db->join('t_job_sheet','t_job_sheet.id_job_sheet = t_student_job_sheet.id_job_sheet');
-		$this->db->join('t_jurusan','t_jurusan.id_jurusan = t_job_sheet.id_jurusan');
+		$this->db->join('t_jurusan','t_jurusan.id_jurusan = t_job_sheet.id_jurusan','left');
 		$result = $this->db->get()->row();
 
 		$this->db->select('t_job_sheet.nama_job_sheet,t_job_sheet.deskripsi_job_sheet,t_job_list.status,t_job_sheet.id_job_sheet,t_job_list.body,t_job_list.head,t_job_list.file_perusahaan,t_student_job_list.file_user,t_job_sheet.id_job_sheet,t_job_list.id_job_list,t_student_job_list.id_student_job_list');
@@ -516,14 +516,15 @@ class User_m extends CI_Model
 		$this->db->where('t_job_list.id_job_list',$id_job_list);
 		$result2 = $this->db->get()->row();
 
-		$this->db->select();
+		$this->db->select('t_user.id_user,t_comment_list.isi_comment,t_comment_list.waktu_comment,t_student.nama AS nama_student, t_perusahaan.nama AS nama_perusahaan,foto_user,status_user');
 		$this->db->from('t_comment_list');
 		$this->db->where('t_comment_list.id_job_list',$id_job_list);
-		$this->db->join('t_user','t_user.id_user = t_comment_list.id_user');
-		$this->db->join('t_student','t_student.id_user = t_user.id_user');
+		$this->db->join('t_user','t_user.id_user = t_comment_list.id_user','left');
+		$this->db->join('t_student','t_student.id_user = t_comment_list.id_user','left');
+		$this->db->join('t_perusahaan','t_perusahaan.id_user = t_comment_list.id_user','left');
 		$this->db->order_by('t_comment_list.id_comment_list','desc');
-		$result3 = $this->db->get()->result();
 
+		$result3 = $this->db->get()->result();
 		$data = new stdClass();
 		$data->jobsheet = $result;
 		$data->joblist = $result2;
