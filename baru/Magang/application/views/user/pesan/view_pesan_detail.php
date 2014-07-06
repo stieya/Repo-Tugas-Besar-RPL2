@@ -15,7 +15,26 @@
 										foreach ($detail_pesan->pesan as $d_pesan)
 										{
 									?>
+									<?php
+											if ($d_pesan->status_user == "STUDENT")
+											{
+									?>
 									<li class="left">
+										<div class="message">
+											<span class="caret"></span>
+											<span class="name"><?php echo $d_pesan->nama; ?></span>
+											<p><?php echo $d_pesan->body; ?> </p>
+											<span class="time">
+												<?php echo $d_pesan->tanggal; ?>
+											</span>
+										</div>
+									</li>
+									<?php
+											}
+											else
+											{
+									?>
+									<li class="right">
 										<div class="image">
 											<?php
 												if ($d_pesan->foto_user == "")
@@ -39,6 +58,8 @@
 										</div>
 									</li>
 									<?php
+											}
+
 										}
 									?>
 								</ul>
