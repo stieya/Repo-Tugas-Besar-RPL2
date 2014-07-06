@@ -46,30 +46,7 @@
 				<li class='dropdown'>
 						<a href="#" class='dropdown-toggle' data-toggle="dropdown"><i class="icon-envelope-alt"></i><span class="label label-lightred"><?php echo $pesan->count ?></span></a>
 						<ul class="dropdown-menu pull-right message-ul">
-							<li>
-								<a class='more-messages'>Mahasiswa</a>
-							</li>
-							<?php
-								foreach ($pesan->msgStu as $psnStu) 
-								{	 
-							?>
-							<li>
-								<a href="<?php echo base_url().'user/message/student/'.$psnStu->id_user_pengirim; ?>">
-									<div class="details">
-										<div class="name"><?php echo $psnStu->nama ?></div>
-										<div class="message">
-											<?php echo substr($psnStu->body,0,20) ?>...
-										</div>
-									</div>
-								</a>
-							</li>
-							<?php
-									
-								} 
-							?>
-							<li>
-								<a class='more-messages'>Perusahaan</a>
-							</li>
+							
 							<?php
 								foreach ($pesan->msgCom as $psnCom) 
 								{	 

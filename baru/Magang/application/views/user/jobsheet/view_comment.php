@@ -103,7 +103,7 @@
 																					?>
 																					Tidak ada file <br />
 																					<?php
-																						echo form_open_multipart('user/jobsheet/upload/'.$comment->jobsheet->id_job_sheet.'/'.$comment->joblist->id_job_list.'/'.$comment->joblist->id_student_job_list.'/komen');
+																						echo form_open_multipart('user/jobsheet/upload/'.$comment->jobsheet->id_job_sheet.'/'.$comment->joblist->id_job_list.'/0/komen');
 																					?>
 																					<b>Tambah File anda</b><br /> 
 																					<input class="file" type="file" accept="application/pdf" name="userfile" /><br />

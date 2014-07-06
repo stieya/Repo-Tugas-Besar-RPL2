@@ -66,7 +66,7 @@ class Jobsheet extends User_Controller {
 		{
 			if ($hal == "detail")
 			{
-				redirect('user/jobsheet/detail/'.$id_jobsheet);
+				redirect('user/jobsheet/detail/'.$id_jobsheet.'/0/1');
 			}
 			else
 			{

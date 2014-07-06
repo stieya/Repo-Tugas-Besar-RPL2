@@ -122,7 +122,7 @@ class User_m extends CI_Model
 
 	public function listPesan()
 	{
-		$this->db->select('t_message.id_user_pengirim, t_student.nama, t_message.body');
+/*		$this->db->select('t_message.id_user_pengirim, t_student.nama, t_message.body');
 		$this->db->from('t_message');
 		$this->db->join('t_message as m1','m1.id_user_pengirim = t_message.id_user_pengirim AND m1.id_message > t_message.id_message','left outer');
 		$this->db->join('t_user','t_user.id_user = t_message.id_user_pengirim');
@@ -133,7 +133,7 @@ class User_m extends CI_Model
 		$this->db->where('t_user.status_user','STUDENT');
 		$this->db->order_by('t_message.tanggal','desc');
 		$result = $this->db->get()->result();
-
+*/
 		$this->db->select('t_message.id_user_pengirim, t_perusahaan.nama, t_message.body');
 		$this->db->from('t_message');
 		$this->db->join('t_message as m1','m1.id_user_pengirim = t_message.id_user_pengirim AND m1.id_message > t_message.id_message','left outer');
@@ -148,8 +148,7 @@ class User_m extends CI_Model
 		$result2 = $this->db->get()->result();
 
 		$data = new stdClass();
-		$data->count = count($result) + count($result2);
-		$data->msgStu = $result;
+		$data->count = count($result2);
 		$data->msgCom = $result2;
 
 		return $data;
@@ -157,7 +156,7 @@ class User_m extends CI_Model
 
 	public function pesan()
 	{
-		$this->db->select('t_message.id_user_pengirim, t_student.nama, t_message.body, t_message.tanggal');
+/*		$this->db->select('t_message.id_user_pengirim, t_student.nama, t_message.body, t_message.tanggal');
 		$this->db->from('t_message');
 		$this->db->join('t_message as m1','m1.id_user_pengirim = t_message.id_user_pengirim AND m1.id_message > t_message.id_message','left outer');
 		$this->db->join('t_user','t_user.id_user = t_message.id_user_pengirim');
@@ -167,7 +166,7 @@ class User_m extends CI_Model
 		$this->db->where('t_user.status_user','STUDENT');
 		$this->db->order_by('t_message.tanggal','desc');
 		$result = $this->db->get()->result();
-
+*/
 		$this->db->select('t_message.id_user_pengirim, t_perusahaan.nama, t_message.body, t_message.tanggal');
 		$this->db->from('t_message');
 		$this->db->join('t_message as m1','m1.id_user_pengirim = t_message.id_user_pengirim AND m1.id_message > t_message.id_message','left outer');
@@ -180,7 +179,6 @@ class User_m extends CI_Model
 		$result2 = $this->db->get()->result();
 
 		$data = new stdClass();
-		$data->msgStu = $result;
 		$data->msgCom = $result2;
 
 		return $data;
@@ -239,7 +237,7 @@ class User_m extends CI_Model
 			$value = array('1',$this->session->userdata['id_user'],$id_user_pengirim);
 			$this->db->query($sql,$value);	
 		}
-		
+
 		$data = new stdClass;
 		$data->pesan = $result;
 		$data->pengirim = $id_user_pengirim;
@@ -264,9 +262,9 @@ class User_m extends CI_Model
 		return $data;
 	}
 
-	public function get_jobsheet($id_company,$id_jobsheet = NULL)
+	public function get_jobsheet($id_company,$id_jobsheet = 0,$hal = NULL)
 	{
-		if ($id_jobsheet != NULL) 
+		if ($id_jobsheet != 0) 
 		{
 			$this->db->select();
 			$this->db->from('t_job_sheet');
@@ -277,6 +275,16 @@ class User_m extends CI_Model
 		}
 		else
 		{
+			if ($hal == 1)
+			{
+			$this->db->select();
+			$this->db->from('t_job_sheet');
+			$this->db->join('t_jurusan','t_jurusan.id_jurusan = t_job_sheet.id_jurusan','left');
+			$this->db->where('t_job_sheet.id_perusahaan',$id_company);
+			$result = $this->db->get()->result();
+			}
+			else
+			{
 			$this->db->select();
 			$this->db->from('t_job_sheet');
 			$this->db->join('t_student_job_sheet','t_student_job_sheet.id_job_sheet = t_job_sheet.id_job_sheet');
@@ -284,6 +292,7 @@ class User_m extends CI_Model
 			$this->db->where('t_job_sheet.id_perusahaan',$id_company);
 			$this->db->where('t_student_job_sheet.id_student',$this->session->userdata['id_student']);
 			$result = $this->db->get()->result();
+			}
 		}
 
 		$result2 = $this->db->get_where('t_perusahaan',array('id_perusahaan' => $id_company))->row();
@@ -459,11 +468,17 @@ class User_m extends CI_Model
 		$this->db->join('t_jurusan','t_jurusan.id_jurusan = t_job_sheet.id_jurusan','left');
 		$result = $this->db->get()->row();
 
-		$this->db->select('t_job_sheet.nama_job_sheet,t_job_sheet.deskripsi_job_sheet,t_job_list.status,t_job_sheet.id_job_sheet,t_job_list.body,t_job_list.head,t_job_list.file_perusahaan,t_student_job_list.file_user,t_job_sheet.id_job_sheet,t_job_list.id_job_list,t_student_job_list.id_student_job_list');
+		/*$this->db->select('t_job_sheet.nama_job_sheet,t_job_sheet.deskripsi_job_sheet,t_job_list.status,t_job_sheet.id_job_sheet,t_job_list.body,t_job_list.head,t_job_list.file_perusahaan,t_student_job_list.file_user,t_job_sheet.id_job_sheet,t_job_list.id_job_list,t_student_job_list.id_student_job_list');
 		$this->db->from('t_student_job_list');
 		$this->db->where('t_student_job_list.id_student',$this->session->userdata['id_student']);
 		$this->db->join('t_job_list','t_job_list.id_job_list = t_student_job_list.id_job_list');
 		$this->db->join('t_job_sheet','t_job_sheet.id_job_sheet = t_job_list.id_job_sheet');
+		$this->db->where('t_job_sheet.id_job_sheet',$id_job_sheet);*/
+
+		$this->db->select('t_job_sheet.nama_job_sheet,t_job_sheet.deskripsi_job_sheet,t_job_list.status,t_job_sheet.id_job_sheet,t_job_list.body,t_job_list.head,t_job_list.file_perusahaan,t_student_job_list.file_user,t_job_sheet.id_job_sheet,t_job_list.id_job_list,t_student_job_list.id_student_job_list');
+		$this->db->from('t_job_list');
+		$this->db->join('t_job_sheet','t_job_sheet.id_job_sheet = t_job_list.id_job_sheet');
+		$this->db->join('t_student_job_list','t_student_job_list.id_job_list = t_job_list.id_job_list','left');
 		$this->db->where('t_job_sheet.id_job_sheet',$id_job_sheet);
 		$result2 = $this->db->get()->result();
 		}
@@ -507,11 +522,18 @@ class User_m extends CI_Model
 		$this->db->join('t_jurusan','t_jurusan.id_jurusan = t_job_sheet.id_jurusan','left');
 		$result = $this->db->get()->row();
 
-		$this->db->select('t_job_sheet.nama_job_sheet,t_job_sheet.deskripsi_job_sheet,t_job_list.status,t_job_sheet.id_job_sheet,t_job_list.body,t_job_list.head,t_job_list.file_perusahaan,t_student_job_list.file_user,t_job_sheet.id_job_sheet,t_job_list.id_job_list,t_student_job_list.id_student_job_list');
+		/*$this->db->select('t_job_sheet.nama_job_sheet,t_job_sheet.deskripsi_job_sheet,t_job_list.status,t_job_sheet.id_job_sheet,t_job_list.body,t_job_list.head,t_job_list.file_perusahaan,t_student_job_list.file_user,t_job_sheet.id_job_sheet,t_job_list.id_job_list,t_student_job_list.id_student_job_list');
 		$this->db->from('t_student_job_list');
 		$this->db->where('t_student_job_list.id_student',$this->session->userdata['id_student']);
 		$this->db->join('t_job_list','t_job_list.id_job_list = t_student_job_list.id_job_list');
 		$this->db->join('t_job_sheet','t_job_sheet.id_job_sheet = t_job_list.id_job_sheet');
+		$this->db->where('t_job_sheet.id_job_sheet',$id_job_sheet);
+		$this->db->where('t_job_list.id_job_list',$id_job_list);*/
+
+		$this->db->select('t_job_sheet.nama_job_sheet,t_job_sheet.deskripsi_job_sheet,t_job_list.status,t_job_sheet.id_job_sheet,t_job_list.body,t_job_list.head,t_job_list.file_perusahaan,t_student_job_list.file_user,t_job_sheet.id_job_sheet,t_job_list.id_job_list,t_student_job_list.id_student_job_list');
+		$this->db->from('t_job_list');
+		$this->db->join('t_job_sheet','t_job_sheet.id_job_sheet = t_job_list.id_job_sheet');
+		$this->db->join('t_student_job_list','t_student_job_list.id_job_list = t_job_list.id_job_list','left');
 		$this->db->where('t_job_sheet.id_job_sheet',$id_job_sheet);
 		$this->db->where('t_job_list.id_job_list',$id_job_list);
 		$result2 = $this->db->get()->row();
@@ -569,21 +591,6 @@ class User_m extends CI_Model
 
 			if ($this->db->insert('t_job_sheet_application', $files)) 
 			{
-				$this->db->select('t_job_sheet.nama_job_sheet,t_job_sheet.deskripsi_job_sheet,t_job_list.status,t_job_sheet.id_job_sheet,t_job_list.body,t_job_list.head,t_job_list.file_perusahaan,t_job_sheet.id_job_sheet,t_job_list.id_job_list');
-				$this->db->from('t_job_list');
-				$this->db->join('t_job_sheet','t_job_sheet.id_job_sheet = t_job_list.id_job_sheet');
-				$this->db->where('t_job_sheet.id_job_sheet',$id_jobsheet);
-				$result2 = $this->db->get()->result();
-
-				foreach ($result2 as $res2)
-				{
-					$fill = array(
-					'id_job_list' => $res2->id_job_list,
-					'id_student' => $this->session->userdata['id_student']
-					);
-					$this->db->insert('t_student_job_list',$fill);
-				}
-
 				return TRUE;
 			}
 			else
@@ -593,7 +600,28 @@ class User_m extends CI_Model
 		}
 		else
 		{
+			if ($id_student_job_list == 0) 
+			{
+			
 			$files = array(
+				'id_job_list' => $id_job_list,
+				'id_student' => $this->session->userdata['id_student'],
+				'file_user' => 'files/student/'.$this->session->userdata['id_student'].'/'.$file,
+				'waktu_upload_file' => unix_to_human(now(),TRUE,'eu')
+				);
+			
+			if($this->db->insert('t_student_job_list',$files))
+			{
+				return TRUE;
+			}
+			else
+			{
+				return FALSE;
+			}
+			}
+			else
+			{
+				$files = array(
 				'file_user' => 'files/student/'.$this->session->userdata['id_student'].'/'.$file,
 				'waktu_upload_file' => unix_to_human(now(),TRUE,'eu')
 				);
@@ -605,6 +633,7 @@ class User_m extends CI_Model
 			else
 			{
 				return FALSE;
+			}
 			}
 
 		}

@@ -136,7 +136,7 @@
 												<img src="<?php echo base_url().$fotos; ?>" style="width:50px;height:60px;" alt="">
 											</div>
 											<div class="search-info">
-												<a href="<?php echo base_url().'user/company/'.$res->id_perusahaan; ?>"><?php echo $res->nama; ?></a>
+												<a href="<?php echo base_url().'user/company/'.$res->id_perusahaan.'/0/1/'; ?>"><?php echo $res->nama; ?></a>
 												<p class="url"> www.<?php echo $res->website ; ?>/</p>
 												<p>
 													<?php echo $res->about; ?>

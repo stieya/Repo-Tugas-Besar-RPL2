@@ -8,9 +8,9 @@ class Company extends User_Controller {
 		$this->load->model('user_m');
 	}
 
-	public function index($id_company = NULL,$id_jobsheet = NULL)
+	public function index($id_company = NULL,$id_jobsheet = 0,$hal = NULL)
 	{
-		if($id_company == NULL && $id_jobsheet == NULL)
+		if($id_company == NULL && $id_jobsheet == 0)
 		{
 			$data['company'] = $this->user_m->get_company();
 			$akt['aktif'] = 'company';
@@ -21,9 +21,9 @@ class Company extends User_Controller {
 			$this->load->view('user/company/view_company',$data);
 		
 		}
-		else if($id_company != NULL && $id_jobsheet == NULL)
+		else if($id_company != NULL && $id_jobsheet == 0)
 		{
-			$data['ph'] = $this->user_m->get_jobsheet($id_company);
+			$data['ph'] = $this->user_m->get_jobsheet($id_company,$id_jobsheet,$hal);
 			$akt['aktif'] = 'company';
 			$akt['pesan'] = $this->user_m->listPesan();
 			$this->load->view('user/view_head');
@@ -32,7 +32,7 @@ class Company extends User_Controller {
 			$this->load->view('user/company/view_jobsheet',$data);
 			
 		}
-		else if($id_company != NULL && $id_jobsheet != NULL)
+		else if($id_company != NULL && $id_jobsheet != 0)
 		{
 			$data['ph'] = $this->user_m->get_jobsheet($id_company,$id_jobsheet);
 			$akt['aktif'] = 'company';

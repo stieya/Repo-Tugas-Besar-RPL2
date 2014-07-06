@@ -33,11 +33,22 @@
 									<div class="top">
 										<div class="left">
 											<a href="<?php echo base_url().'user/profile/'.$js->id_perusahaan ?>"><h5> <?php echo $ph->company->nama; ?> </h5></a>
-											<h5> <?php echo $js->nama ?> </h5>
+											<h5>
+											<?php
+													if (is_null($js->nama)) 
+													{
+													 	echo 'Umum';
+													} 
+													else
+													{
+													echo $js->nama;
+													} 
+												?>
+											</h5>
 										</div>
 										<div class="right">
 											<p>
-												<a href="<?php echo base_url().'user/jobsheet/detail/'.$js->id_job_sheet ?>" class="btn btn-warning">Detail</a>
+												<a href="<?php echo base_url().'user/jobsheet/detail/'.$js->id_job_sheet.'/0/1' ?>" class="btn btn-warning">Detail</a>
 											</p>
 											<h6>
 												Durasi : <?php echo $js->durasi ?> Hari
