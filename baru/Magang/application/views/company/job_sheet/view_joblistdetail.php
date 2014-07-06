@@ -33,13 +33,16 @@
 							<div class="box-content">
 								
 								<div class="search-info">	
-									<?php if($job_list->file_perusahaan != NULL) : ?>						
+									<?php if($job_list->file_perusahaan != null) : ?>						
 									<div class="box-content">
 										<a href="<?php echo base_url().'files/company/'.$jobsheets->jobsheetdetail->id_job_sheet.'/'.$job_list->file_perusahaan;?>"class="btn-block btn-primary btn btn-large "> Download File </a>
 									</div>
 									<?php else : ?>
-									<div class="box-content">
+									<div class="box-content text-center">
+										
 										<h3> Belum Terdapat File Untuk Job List ini</h3>
+										
+										
 									</div>
 									<?php endif; ?>
 								</div>							
@@ -114,7 +117,8 @@
 							</div>
 						</div>
 					</div>
-					<?php if(!is_null($pekerja->studentjoblist->file_user)) : ?>
+
+					<?php if(isset($pekerja->studentjoblist[1]->file_user['1'])) : ?>
 					<div class="span6">
 						<div class="box">
 							<div class="box-title">
@@ -125,21 +129,20 @@
 							</div>
 							<div class="box-content">
 								<div class="statistic-big">
-									<div class="top">
+									<?php foreach($pekerja->studentjoblist as $job) : ?>
+									<div class="top">										
 										<div class="left">
-											Tanggal Upload : 13-10-1993
-										</div>
-										<div class="right">
-											
-												<a href="" class="btn-block btn btn-primary">Download File </a>
+												<a href="<?php echo base_url().$job->file_user; ?>" class="btn-block btn btn-primary">Download File </a>
 											
 										</div>
 									</div>
 									<div class="bottom">
 									<h6> Keterangan File Ini </h6>
-									<p> asdasdasdasdasdasdasdasdsa </p>
+									<p> <?php echo $job->keterangan;?> </p>
 									</div>
+									<?php endforeach; ?>
 								</div>
+
 							</div>
 						</div>
 					</div>
@@ -241,7 +244,7 @@
 										</div>
 										<div class="message">
 											<span class="caret"></span>
-											<span class="name" style="font-weight:bold;"><?php echo $comment->nama_student; ?></span>
+											<a href="<?php echo base_url().'company/profile/'.$comment->id_user;?>"><span class="name" style="font-weight:bold;"><?php echo $comment->nama_student; ?></span></a>
 											<p><?php echo $comment->isi_comment; ?></p>
 											<span class="time">
 												

@@ -117,6 +117,7 @@ class Jobsheet extends Company_Controller {
 			$job_list = $this->db->get()->row(); 
 
 			$val = count($job_list);
+			//var_dump($job_list);
 			if($val > 0){
 				$this->load->model('comment_m');
 				$nav['halaman'] = 'jobsheet';
@@ -126,6 +127,7 @@ class Jobsheet extends Company_Controller {
 				$data['job_list'] = $job_list;
 				$data['chat'] = $nav['info'];
 				$data['pekerja'] = $this->jobsheet_m->getJoblistDetail($id_job_sheet,$id_job_list);
+				//var_dump($data['pekerja']);
 				//var_dump($data['pekerja']->studentjoblist);
 				//var_dump($data['jobsheets']);
 				
@@ -142,6 +144,7 @@ class Jobsheet extends Company_Controller {
 					
 				}
 				$data['comments'] = $this->comment_m->getJoblistComment($id_job_list);
+
 				//var_dump($data['comments']);
 				$this->load->view('company/view_head');
 				$this->load->view('company/view_nav',$nav);
@@ -249,7 +252,8 @@ class Jobsheet extends Company_Controller {
 			$this->db->select()->from('t_job_sheet_application')
 				->where('id_job_sheet',$id_job_sheet)
 				->where('id_student',$id_student)
-				->where('status',0);
+				->where('status','0');
+
 			if(count($this->db->get()->result()) > 0){
 
 				$this->db->select()->from('t_job_sheet_application')
@@ -295,11 +299,13 @@ class Jobsheet extends Company_Controller {
 
 			}
 			else{
-				redirect('company/404');
+				//redirect('company/404');
+				var_dump('kosong2');
 			}
 		}
 		else{
-			redirect('company/404');
+			//redirect('company/404');
+			var_dump('kosong1');
 		}
 
 	}

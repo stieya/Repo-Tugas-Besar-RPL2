@@ -36,6 +36,7 @@ class Message extends Company_Controller {
 					'body' => $this->input->post('message'),
 					'id_user_penerima' =>$id_pemilik_pesan,
 					'id_user_pengirim' => $this->session->userdata('id_user'),
+					'status' => '0',
 					);
 				$this->message_m->saveMessageDetail($message);
 

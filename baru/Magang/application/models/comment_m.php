@@ -10,7 +10,8 @@ class Comment_m extends MY_Model {
 						->join('t_user','t_comment_list.id_user = t_user.id_user')
 						->join ('t_perusahaan','t_perusahaan.id_user = t_comment_list.id_user','left')
 						->join('t_student','t_student.id_user = t_comment_list.id_user','left')
-						->where('id_job_list',$id_job_list);
+						->where('id_job_list',$id_job_list)
+						->order_by('id_comment_list',"ASC");
 
 		return $this->db->get()->result();			
 		

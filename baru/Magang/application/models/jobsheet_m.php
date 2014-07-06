@@ -103,7 +103,7 @@ class Jobsheet_m extends MY_Model {
 			->join('t_student_job_list','t_student_job_list.id_job_list = t_job_list.id_job_list','left')
 			->where('t_job_list.id_job_list',mysql_real_escape_string($id_job_list));
 
-		$result2 = $this->db->get()->row();
+		$result2 = $this->db->get()->result();
 
 		$data = new stdClass();
 		$data->studentjobsheet = $result;
