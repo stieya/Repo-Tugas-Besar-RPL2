@@ -167,7 +167,14 @@
 											}
 											else
 											{
-												$fotos = $komen->foto_user;
+												if ($komen->status_user == "STUDENT")
+												{
+													$fotos = $komen->foto_user;
+												}
+												else
+												{
+													$fotos = 'images/company/'.$komen->id_user.'/'.$komen->foto_user;
+												}
 											}
 											if ($komen->status_user == "STUDENT")
 											{

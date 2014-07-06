@@ -125,7 +125,7 @@
 												}
 												else
 												{
-													$fotos = $res->foto_user;
+													$fotos = 'images/company/'.$res->id_user.'/'.$res->foto_user;
 												}
 
 										?>

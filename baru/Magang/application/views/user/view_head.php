@@ -82,6 +82,7 @@
 	<link rel="shortcut icon" href="<?php echo site_url(); ?>img/favicon.ico" />
 	<!-- Apple devices Homescreen icon -->
 	<link rel="apple-touch-icon-precomposed" href="<?php echo site_url(); ?>img/apple-touch-icon-precomposed.png" />
+	<title>Mari Magang</title>
 
 </head>
 

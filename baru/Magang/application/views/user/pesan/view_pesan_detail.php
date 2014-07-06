@@ -43,7 +43,7 @@
 												}
 												else
 												{
-													$fotos = $d_pesan->foto_user;
+													$fotos = 'images/company/'.$d_pesan->id_user.'/'.$d_pesan->foto_user;
 												}
 											?>
 											<img src="<?php echo base_url().$fotos;?>" alt="">

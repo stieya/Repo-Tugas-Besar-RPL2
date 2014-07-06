@@ -19,7 +19,7 @@
 												}
 												else
 												{
-													$fotos = $perusahaan->foto_user;
+													$fotos = 'images/company/'.$perusahaan->id_user.'/'.$perusahaan->foto_user;
 												}
 										?>
 										<li>

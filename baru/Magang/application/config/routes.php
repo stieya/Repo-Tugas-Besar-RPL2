@@ -66,7 +66,7 @@ $route['user'] = 'user/dashboard';
 $route['user/profile/(:num)'] = 'user/profile/index/$1';
 $route['user/company'] = 'user/company/index';
 $route['user/company/(:num)'] = 'user/company/index/$1';
-$route['user/company/(:num)/(:num)'] = 'user/company/index/$1/$2';
+$route['user/company/(:num)/(:num)/(:num)'] = 'user/company/index/$1/$2/$3';
 
 $route['user/jobsheet'] = 'user/jobsheet/index';
 $route['user/jobsheet/(:num)'] = 'user/jobsheet/index/$1';
@@ -79,7 +79,6 @@ $route['user/message/hapus/(:num)/(:num)'] = 'user/message/delete/$1/$2';
 $route['user/search/(:num)'] = 'user/search/index/$1';
 $route['user/search/(:num)/(:any)'] = 'user/search/index/$1/$2';
 $route['user/search/(:num)/(:any)/(:any)'] = 'user/search/index/$1/$2/$3';
-
 
 
 $route['default_controller'] = "welcome";
