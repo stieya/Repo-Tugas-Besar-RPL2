@@ -499,8 +499,15 @@ class User_m extends CI_Model
 
 		$this->db->select();
 		$this->db->from('t_job_sheet_application');
-		$this->db->where('id_student',$this->session->userdata['id_student']);
+		$this->db->where('id_job_sheet',$id_job_sheet);
 		$this->db->where('status','1');
+		$this->db->or_where('status','1');
+		$this->db->where('id_student',$this->session->userdata['id_student']);
+
+		/*$this->db->select();
+		$this->db->from('t_job_sheet');
+		$this->db->where('status','Ongoing');
+		$this->db->where('id_job_sheet',$id_job_sheet);*/
 		$result3 = $this->db->get()->row();
 
 		$data = new stdClass();
