@@ -26,7 +26,7 @@
 <XPD:OBJ name="OwnedViews[0]" type="UMLSystemBoundaryView" guid="6Fq8p9h7kkucErvROVhM+AAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">784</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">788</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">216</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">1112</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">1024</XPD:ATTR>
@@ -2179,13 +2179,13 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">872</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">256</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">188</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">178</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
 <XPD:REF name="Model">S1694M7d6U2qgvltrVx6OQAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="MET/8h5lkkmBUBAqHUnmkAAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="diGOc8tqMEaJ1fsQelSCyAAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Memblock Mahasiswa</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Memblock User</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="RD4We+9LQkWnXveT3OVF/AAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -2210,7 +2210,7 @@
 <XPD:OBJ name="OwnedViews[41]" type="UMLAssociationView" guid="yk8X0kA+kUWbS6CybPZfeAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">940,300;729,484</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">935,300;729,484</XPD:ATTR>
 <XPD:REF name="Model">aIK90oFG7kiGaYcIZQ1joAAA</XPD:REF>
 <XPD:REF name="Head">v6+A0BSrrEKPVF4GMJ5hmwAA</XPD:REF>
 <XPD:REF name="Tail">ri39DZPa102SEB1lzcHQKgAA</XPD:REF>
@@ -28089,7 +28089,7 @@
 <XPD:REF name="Associations[0]">42sfQUN+u0WrV8DVmlC+pAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[46]" type="UMLUseCase" guid="S1694M7d6U2qgvltrVx6OQAA">
-<XPD:ATTR name="Name" type="string">Memblock Mahasiswa</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Memblock User</XPD:ATTR>
 <XPD:REF name="Namespace">E9wURmiq4E+0jrQM8bNKFwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">ri39DZPa102SEB1lzcHQKgAA</XPD:REF>
