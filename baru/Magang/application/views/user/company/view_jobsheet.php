@@ -51,7 +51,7 @@
 												<a href="<?php echo base_url().'user/jobsheet/detail/'.$js->id_job_sheet.'/0/1' ?>" class="btn btn-warning">Detail</a>
 											</p>
 											<h6>
-												Durasi : <?php echo $js->durasi ?> Hari
+												Durasi : <?php echo $js->durasi ?> Bulan
 											</h6>
 										</div>
 									</div>

@@ -8,6 +8,7 @@ class Message extends User_Controller {
 		{
 			$data['daftar_pesan'] = $this->user_m->pesan();
 			$akt['pesan'] = $this->user_m->listPesan();
+			$akt['notif'] = $this->user_m->get_notif();
 			$akt['aktif'] = 'pesan';
 			$this->load->view('user/view_head');
 			$this->load->view('user/view_nav',$akt);
@@ -18,6 +19,7 @@ class Message extends User_Controller {
 		{
 			$data['detail_pesan'] = $this->user_m->lihatPesan($id_user_pengirim,$msg);
 			$akt['pesan'] = $this->user_m->listPesan();
+			$akt['notif'] = $this->user_m->get_notif();
 			$akt['aktif'] = 'pesan';
 			$this->load->view('user/view_head');
 			$this->load->view('user/view_nav',$akt);

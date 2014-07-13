@@ -43,6 +43,33 @@
 			</ul>
 			<div class="user">
 				<ul class="icon-nav">
+
+				<li class='dropdown'>
+						<a href="#" class='dropdown-toggle' data-toggle="dropdown"><i class="icon-bell"></i><span class="label label-lightred"><?php echo $notif->notifCount; ?></span></a>
+						<ul class="dropdown-menu pull-right message-ul">
+							
+							<li >
+								<a class='more-messages'><b>Notifikasi</b></a>
+							</li>
+							<?php
+								foreach ($notif->isi as $isiNtf) 
+								{	 
+							?>
+							<li>
+								<a href="<?php echo base_url().'user/dashboard/read/'.$isiNtf->id_notification; ?>">
+								<div class="details">
+									<div class="name"><b><?php echo $isiNtf->head ?></b></div>
+									<div class="message">
+										<?php echo $isiNtf->body ?>
+									</div>
+								</div>
+								</a>
+							</li>
+							<?php
+								} 
+							?>
+						</ul>
+					</li>
 				<li class='dropdown'>
 						<a href="#" class='dropdown-toggle' data-toggle="dropdown"><i class="icon-envelope-alt"></i><span class="label label-lightred"><?php echo $pesan->count ?></span></a>
 						<ul class="dropdown-menu pull-right message-ul">
@@ -69,16 +96,17 @@
 							</li>
 						</ul>
 					</li>
+					
 				</ul>
 				<div class="dropdown asdf">
 					<?php
-						if ($this->session->userdata['foto_user'] == "")
+						if ($notif->foto->foto_user == "")
 						{
 							$fotos = "img/no_image.png";
 						}
 						else
 						{
-							$fotos = $this->session->userdata['foto_user'];
+							$fotos = $notif->foto->foto_user;
 						}
 					?>
 					<a href="<?php echo site_url(); ?>#" class='dropdown-toggle' data-toggle="dropdown"><?php echo $this->session->userdata['email']; ?> <img width="20px" height="50px" src="<?php echo base_url().$fotos; ?>" alt=""></a>

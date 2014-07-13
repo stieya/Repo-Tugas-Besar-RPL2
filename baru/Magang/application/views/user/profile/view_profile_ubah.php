@@ -60,7 +60,9 @@
 									<div class="control-group">
 										<label for="textfield" class="control-label">Alamat</label>
 										<div class="controls">
-											<input type="text" name="alamat" placeholder="Alamat anda" value="<?php echo $profil->alamat ?>">
+											<textarea name="alamat">
+												<?php echo $profil->alamat ?>
+											</textarea>
 										</div>
 									</div>
 									<div class="control-group">

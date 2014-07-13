@@ -139,7 +139,7 @@
 												<a href="<?php echo base_url().'user/company/'.$res->id_perusahaan.'/0/1/'; ?>"><?php echo $res->nama; ?></a>
 												<p class="url"> www.<?php echo $res->website ; ?>/</p>
 												<p>
-													<?php echo $res->about; ?>
+													<?php echo substr($res->about,0,300); ?>
 												</p>
 											</div>
 										</li>
@@ -183,7 +183,8 @@
 														</div>
 													</div>
 													<div class="bottom">
-														<?php echo $res->deskripsi_job_sheet; ?>								</div>
+														<?php $res->deskripsi_job_sheet; ?>
+													</div>
 												</div>
 											</div>
 										</div>

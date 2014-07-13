@@ -59,6 +59,47 @@ class User_m extends CI_Model
 		parent::__construct();
 	}
 
+//---------//Notifikasi
+	public function get_notif()
+	{
+		$this->db->select();
+		$this->db->from('t_notification');
+		$this->db->where('status','0');
+		$this->db->where('id_user',$this->session->userdata['id_user']);
+		$result = $this->db->get()->result();
+			
+		$this->db->select('foto_user');
+		$this->db->from('t_user');
+		$this->db->where('id_user',$this->session->userdata['id_user']);
+		$result2 = $this->db->get()->row();
+
+		$data = new stdClass();
+		$data->notifCount = count($result);
+		$data->isi = $result;
+		$data->foto = $result2;
+		
+		return $data;
+	}
+
+	public function read($id)
+	{
+		$status = array(
+			'status' => '1'
+			);
+		
+		if($this->db->where('id_notification',$id)->update('t_notification',$status))
+		{
+			return TRUE;
+		}
+		else
+		{
+			return FALSE;
+		}
+	}
+
+//---------//AkhirNotifikasi
+
+
 //---------//Dropdown
 
 	public function get_jurusan()
@@ -82,6 +123,7 @@ class User_m extends CI_Model
 //---------//AkhirDropdown
 
 //---------//Dashboard
+
 	public function get_dash()
 	{
 		$this->db->select();
@@ -334,12 +376,13 @@ class User_m extends CI_Model
 	{
 		if ($id_perusahaan == NULL) 
 		{
-			$this->db->select('t_student.nama as namaStudent, t_student.alamat as alamatStudent, t_kota.nama as kotaStudent, t_student.`kode_pos` AS kpStudent, t_student.`telepon` AS tlpStudent, t_student.`email` AS emailStudent, t_student.`nim` AS nim, t_jurusan.nama as jurusan, t_universitas.nama as namaUniv, t_universitas.alamat as alamatUniv, t_universitas.id_kota as id_kota_univ, t_universitas.kode_pos as kpUniv, t_universitas.telepon as tlpUniv, t_universitas.website as webUniv ');
+			$this->db->select('t_user.foto_user, t_student.nama as namaStudent, t_student.alamat as alamatStudent, t_kota.nama as kotaStudent, t_student.`kode_pos` AS kpStudent, t_student.`telepon` AS tlpStudent, t_student.`email` AS emailStudent, t_student.`nim` AS nim, t_jurusan.nama as jurusan, t_universitas.nama as namaUniv, t_universitas.alamat as alamatUniv, t_universitas.id_kota as id_kota_univ, t_universitas.kode_pos as kpUniv, t_universitas.telepon as tlpUniv, t_universitas.website as webUniv ');
 			$this->db->from('t_student');
 			$this->db->where('t_student.id_student',$this->session->userdata['id_student']);
-			$this->db->join('t_kota','t_kota.id_kota = t_student.id_kota');
+			$this->db->join('t_kota','t_kota.id_kota = t_student.id_kota','left');
 			$this->db->join('t_universitas','t_universitas.id_universitas = t_student.id_universitas');
 			$this->db->join('t_jurusan','t_jurusan.id_jurusan = t_student.id_jurusan','left');
+			$this->db->join('t_user','t_user.id_user = t_student.id_user');
 			$result = $this->db->get()->row();
 
 			$this->db->select('t_kota.nama as kotaUniv');
@@ -354,10 +397,10 @@ class User_m extends CI_Model
 		}
 		else
 		{
-			$this->db->select('t_perusahaan.id_perusahaan,t_perusahaan.nama as nama_perusahaan,t_perusahaan.alamat,t_kota.nama as nama_kota,t_perusahaan.kode_pos,t_perusahaan.telepon,t_perusahaan.website');
+			$this->db->select('t_perusahaan.id_user,t_perusahaan.id_perusahaan,t_perusahaan.nama as nama_perusahaan,t_perusahaan.alamat,t_kota.nama as nama_kota,t_perusahaan.kode_pos,t_perusahaan.telepon,t_perusahaan.website');
 			$this->db->from('t_perusahaan');
 			$this->db->where('t_perusahaan.id_perusahaan',$id_perusahaan);
-			$this->db->join('t_kota','t_kota.id_kota = t_perusahaan.id_kota');
+			$this->db->join('t_kota','t_kota.id_kota = t_perusahaan.id_kota','left');
 			$result = $this->db->get()->row();
 
 			$data = new stdClass();
@@ -443,7 +486,7 @@ class User_m extends CI_Model
 
 	public function jobsheet()
 	{
-		$this->db->select('t_job_sheet.status, t_job_sheet.nama_job_sheet,t_jurusan.nama as nama_jurusan,t_job_sheet.id_job_sheet,t_job_sheet.durasi,t_job_sheet.deskripsi_job_sheet, t_perusahaan.nama as nama_perusahaan, t_perusahaan.id_perusahaan');
+		$this->db->select('(TO_DAYS(waktu_start) - TO_DAYS(waktu_akhir)) as durasi,(TO_DAYS(now()) - TO_DAYS(waktu_akhir)) as sisa,t_job_sheet.status, t_job_sheet.nama_job_sheet,t_jurusan.nama as nama_jurusan,t_job_sheet.id_job_sheet,t_job_sheet.deskripsi_job_sheet, t_perusahaan.nama as nama_perusahaan, t_perusahaan.id_perusahaan');
 		$this->db->from('t_student_job_sheet');
 		$this->db->where('t_student_job_sheet.id_student',$this->session->userdata['id_student']);
 		$this->db->where('t_student_job_sheet.status',1);
@@ -551,7 +594,7 @@ class User_m extends CI_Model
 		$this->db->join('t_user','t_user.id_user = t_comment_list.id_user','left');
 		$this->db->join('t_student','t_student.id_user = t_comment_list.id_user','left');
 		$this->db->join('t_perusahaan','t_perusahaan.id_user = t_comment_list.id_user','left');
-		$this->db->order_by('t_comment_list.id_comment_list','desc');
+		$this->db->order_by('t_comment_list.id_comment_list','asc');
 
 		$result3 = $this->db->get()->result();
 		$data = new stdClass();
@@ -654,7 +697,8 @@ class User_m extends CI_Model
 			'email' => $this->input->post('email'),
 			'password' => md5($this->input->post('password')),
 			'status_user' => 'STUDENT',
-			'tanggal_masuk' => unix_to_human(now(),TRUE,'eu')
+			'tanggal_masuk' => unix_to_human(now(),TRUE,'eu'),
+			'block' => '0'
 			);
 		
 		if($this->db->insert('t_user',$data_user))
@@ -695,7 +739,7 @@ class User_m extends CI_Model
 //---------//Login
 	public function login($data)
 	{
-		$sql = "SELECT * FROM t_user JOIN t_student USING(id_user) WHERE t_user.email = ? AND t_user.password = ? AND status_user ='STUDENT' ";
+		$sql = "SELECT * FROM t_user JOIN t_student USING(id_user) WHERE t_user.email = ? AND t_user.password = ? AND status_user ='STUDENT' AND block = '0' ";
 		$value = array($data['email'],md5($data['password']));
 		$query = $this->db->query($sql,$value);
 		if($query->num_rows() > 0)

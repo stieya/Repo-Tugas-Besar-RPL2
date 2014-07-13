@@ -86,7 +86,7 @@
 																						else
 																						{
 																					?>
-																					<a href="<?php echo base_url().$comment->joblist->file_perusahaan ?>" class="btn">Download File </a>
+																					<a href="<?php echo base_url().$comment->joblist->file_perusahaan ?>" target="_blank" class="btn">Download File </a>
 																					<?php
 																						}
 																					?>
@@ -114,7 +114,7 @@
 																						else
 																						{
 																					?>
-																					<a href="<?php echo base_url().$comment->joblist->file_user ?>" class="btn">Download File </a> <br />
+																					<a href="<?php echo base_url().$comment->joblist->file_user ?>" target="_blank" class="btn">Download File </a> <br />
 																					<?php
 																						echo form_open_multipart('user/jobsheet/upload/'.$comment->jobsheet->id_job_sheet.'/'.$comment->joblist->id_job_list.'/'.$comment->joblist->id_student_job_list.'/komen');
 																					?>
@@ -154,7 +154,7 @@
 									Diskusi
 								</h3>
 							</div>
-							<div class="box-content nopadding">
+							<div class="box-content nopadding scrollable" data-height="400" data-start="bottom" data-visible="true">
 								<ul class="messages">
 									<?php
 										foreach ($comment->komentar as $komen)

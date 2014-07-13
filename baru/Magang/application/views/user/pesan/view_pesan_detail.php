@@ -2,7 +2,7 @@
 			<div class="container-fluid">
 				<div class="page-header">
 					<div class="pull-left">
-						<h1>Pesan Masuk</h1>
+						<h1>Pesan</h1>
 					</div>
 				</div>
 				<div class="row-fluid">

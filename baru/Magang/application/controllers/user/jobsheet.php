@@ -6,6 +6,7 @@ class Jobsheet extends User_Controller {
 	{
 		$akt['aktif'] = 'jobsheet';
 		$akt['pesan'] = $this->user_m->listPesan();
+		$akt['notif'] = $this->user_m->get_notif();
 		$data['jobsheet'] = $this->user_m->jobsheet();
 		$this->load->view('user/view_head');
 		$this->load->view('user/view_nav',$akt);
@@ -18,6 +19,7 @@ class Jobsheet extends User_Controller {
 		if ($id_joblist == 0) 
 		{
 			$akt['aktif'] = 'jobsheet';
+			$akt['notif'] = $this->user_m->get_notif();
 			$akt['pesan'] = $this->user_m->listPesan();
 			$data['js'] = $this->user_m->detail_jobsheet($id_jobsheet,$hal);
 			$data['hal'] = $hal;
@@ -29,6 +31,7 @@ class Jobsheet extends User_Controller {
 		else
 		{
 			$akt['aktif'] = 'jobsheet';
+			$akt['notif'] = $this->user_m->get_notif();
 			$akt['pesan'] = $this->user_m->listPesan();
 			$data['comment'] = $this->user_m->comment_joblist($id_jobsheet,$id_joblist);
 			$this->load->view('user/view_head');

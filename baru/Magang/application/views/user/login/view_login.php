@@ -55,21 +55,21 @@
 	<link rel="shortcut icon" href="<?php echo site_url(); ?>img/favicon.ico" />
 
 	<link rel="stylesheet" href="<?php echo site_url(); ?>css/costum.css">
-
+	<title>Mari Magang</title>
 </head>
 
 <body>
 	<div id="navigation" style="height:40px;">
 		<div class="container-fluid">
-			<a href="<?php echo site_url(); ?>#" id="brand"><span style="background-color:#f1c40f;  padding:8px 8px; color:#fff;">Yuk</span> <span style="background-color:#7f8c8d; padding:8px 8px; color:#fff; margin-left:0px;">magang.com</span></a>
+			<a href="<?php echo site_url(); ?>#" id="brand"><span style="background-color:#f1c40f;  padding:8px 8px; color:#fff;">Mari</span> <span style="background-color:#7f8c8d; padding:8px 8px; color:#fff; margin-left:0px;">magang.com</span></a>
 		</div>
 	</div>
 	
 	<div class="modal-dialog text-center" style="width:40%;margin-left:30%;margin-top:120px;background:#95a5a6;" >
 		<div class="modal-content">
 			<div class="modal-head">
-				<h3>Student Login</h3>
-				<p>Gunakan Email Anda Untuk Dapat Memasuki YukMagang.com</p>
+				<h3>Login Mahasiswa</h3>
+				<p>Gunakan Email Anda Untuk Dapat Memasuki marimagang.com</p>
 				<?php if($error) : ?>
 				<div class="alert alert-error">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -98,7 +98,7 @@
 			</div>			 
 			<div class="modal-footer" style="background:#7f8c8d">
 				<a href="signup/"><button value="Daftar" class="btn btn-primary" />Register</button></a>
-				&copy; YukMagang.com
+				&copy; marimagang.com
 			</div>
 		</div>
 	</div>	

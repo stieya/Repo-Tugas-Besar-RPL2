@@ -78,7 +78,9 @@
 												<a href="<?php echo 'detail/'.$js['id_job_sheet']; ?>" class="btn btn-warning">Detail</a>
 											</p>
 											<h6>
-												Durasi : <?php echo $js['durasi'] ?> Hari
+												Durasi : <?php echo str_replace('-', ' ', $js['durasi']) ?> Hari
+												<br />
+												Tersisa : <?php echo str_replace('-', ' ', $js['sisa']) ?> Hari
 											</h6>
 										</div>
 									</div>

@@ -139,7 +139,7 @@
 																						else
 																						{
 																					?>
-																					<a href="<?php echo base_url().$jl->file_perusahaan ?>" class="btn">Download File </a>
+																					<a href="<?php echo base_url().'files/company/'.$jl->id_job_sheet.'/'.$jl->file_perusahaan ?>" target="_blank" class="btn">Download File </a>
 																					<?php
 																						}
 																					?>
@@ -164,7 +164,7 @@
 																						else
 																						{
 																					?>
-																					<a href="<?php echo base_url().$jl->file_user ?>" class="btn">Download File </a> <br />
+																					<a href="<?php echo base_url().$jl->file_user ?>" target="_blank" class="btn">Download File </a> <br />
 																					<?php
 																						}
 																					?>

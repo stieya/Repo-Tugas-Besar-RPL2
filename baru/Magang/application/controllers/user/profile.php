@@ -9,6 +9,7 @@ class Profile extends User_Controller {
 			$this->load->model('user_m');
 			$data['profil'] = $this->user_m->get_profil();
 			$akt['aktif'] = '';
+			$akt['notif'] = $this->user_m->get_notif();
 			$akt['pesan'] = $this->user_m->listPesan();
 			$this->load->view('user/view_head');
 			$this->load->view('user/view_nav',$akt);
@@ -20,6 +21,7 @@ class Profile extends User_Controller {
 			$this->load->model('user_m');
 			$data['profil'] = $this->user_m->get_profil($id_perusahaan);
 			$akt['aktif'] = '';
+			$akt['notif'] = $this->user_m->get_notif();
 			$akt['pesan'] = $this->user_m->listPesan();
 			$this->load->view('user/view_head');
 			$this->load->view('user/view_nav',$akt);
@@ -47,6 +49,7 @@ class Profile extends User_Controller {
 		$data['jurusan'] = $this->user_m->get_jurusan();
 
 		$akt['aktif'] = '';
+		$akt['notif'] = $this->user_m->get_notif();
 		$akt['pesan'] = $this->user_m->listPesan();
 		$this->load->view('user/view_head');
 		$this->load->view('user/view_nav',$akt);

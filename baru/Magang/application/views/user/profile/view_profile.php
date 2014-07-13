@@ -9,7 +9,7 @@
 						?>
 						<ul class="stats">
 							<li class='blue'>
-								<a href="<?php echo base_url().'user/message/company/'.$profil->profile->id_perusahaan; ?>"><i class="icon-envelope"></i></a>
+								<a href="<?php echo base_url().'user/message/company/'.$profil->profile->id_user; ?>"><i class="icon-envelope"></i></a>
 							</li>
 						</ul>
 						<?php
@@ -39,13 +39,13 @@
 									<tbody>
 										<tr>
 											<?php
-												if ($this->session->userdata['foto_user'] == "")
+												if ($profil->profile->foto_user == "")
 												{
 													$fotos = "img/no_image.png";
 												}
 												else
 												{
-													$fotos = $this->session->userdata['foto_user'];
+													$fotos = $profil->profile->foto_user;
 												}
 											?>
 											<td><img width="100" height="150" src="<?php echo base_url().$fotos ?>" /></td>

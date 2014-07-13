@@ -7,6 +7,7 @@ class Search extends User_Controller {
 
 		$data['company'] = $this->user_m->get_company();
 		$akt['aktif'] = 'company';
+		$akt['notif'] = $this->user_m->get_notif();
 		$akt['pesan'] = $this->user_m->listPesan();
 		$jenis = 'pekerjaan';
 		$kota = 0;

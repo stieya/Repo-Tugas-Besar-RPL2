@@ -14,6 +14,7 @@ class Company extends User_Controller {
 		{
 			$data['company'] = $this->user_m->get_company();
 			$akt['aktif'] = 'company';
+			$akt['notif'] = $this->user_m->get_notif();
 			$akt['pesan'] = $this->user_m->listPesan();
 			$this->load->view('user/view_head');
 			$this->load->view('user/view_nav',$akt);
@@ -25,6 +26,7 @@ class Company extends User_Controller {
 		{
 			$data['ph'] = $this->user_m->get_jobsheet($id_company,$id_jobsheet,$hal);
 			$akt['aktif'] = 'company';
+			$akt['notif'] = $this->user_m->get_notif();
 			$akt['pesan'] = $this->user_m->listPesan();
 			$this->load->view('user/view_head');
 			$this->load->view('user/view_nav',$akt);
@@ -36,6 +38,7 @@ class Company extends User_Controller {
 		{
 			$data['ph'] = $this->user_m->get_jobsheet($id_company,$id_jobsheet);
 			$akt['aktif'] = 'company';
+			$akt['notif'] = $this->user_m->get_notif();
 			$akt['pesan'] = $this->user_m->listPesan();
 			$this->load->view('user/view_head');
 			$this->load->view('user/view_nav',$akt);

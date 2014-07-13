@@ -59,13 +59,13 @@
 	<link rel="shortcut icon" href="<?php echo site_url(); ?>img/favicon.ico" />
 
 	<link rel="stylesheet" href="<?php echo site_url(); ?>css/costum.css">
-
+	<title>Mari Magang</title>
 </head>
 
 <body>
 	<div id="navigation" style="height:40px;">
 		<div class="container-fluid">
-			<a href="<?php echo site_url(); ?>#" id="brand"><span style="background-color:#f1c40f;  padding:8px 8px; color:#fff;">Yuk</span> <span style="background-color:#7f8c8d; padding:8px 8px; color:#fff; margin-left:0px;">magang.com</span></a>
+			<a href="<?php echo site_url(); ?>#" id="brand"><span style="background-color:#f1c40f;  padding:8px 8px; color:#fff;">Mari</span> <span style="background-color:#7f8c8d; padding:8px 8px; color:#fff; margin-left:0px;">magang.com</span></a>
 		</div>
 	</div>
 		<div id="main" style="margin-left:20px;">
@@ -74,6 +74,7 @@
 				</div>
 				<div class="row-fluid">
 					<div class="span8">
+					<a href="<?php echo base_url().'user' ;?>"><button type="submit" class="btn btn-primary">Login</button></a>
 						<div class="box box-color box-bordered">
 							<div class="box-title">
 								<h3>
@@ -130,7 +131,9 @@
 									<div class="control-group">
 										<label for="textfield" class="control-label">Alamat</label>
 										<div class="controls">
-											<input type="text" name="alamat" placeholder="Alamat anda">
+											<textarea name="alamat">
+												Alamat anda
+											</textarea>
 										</div>
 									</div>
 									<div class="control-group">
