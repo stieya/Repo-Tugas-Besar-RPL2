@@ -72,7 +72,7 @@
 	<script src="<?php echo base_url(); ?>js/application.min.js"></script>
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="<?php echo site_url(); ?>img/favicon.ico" />
-
+	<title> MariMagang.Com</title>
 </head>
 
 <body>

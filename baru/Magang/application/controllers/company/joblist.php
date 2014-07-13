@@ -34,6 +34,8 @@ class Joblist extends Company_Controller {
 
 			$side['info'] = $this->infocompany;
 			$nav['info'] = $this->infocompany;
+			$nav['sum_notifikasi'] = $this->notifikasi_m->getUnread();
+			$nav['notifikasi'] = $this->notifikasi_m->getSample();
 			$this->db->select()->from('t_job_sheet')
 						->where('id_job_sheet',mysql_real_escape_string($id_job_sheet));
 
@@ -116,6 +118,8 @@ class Joblist extends Company_Controller {
 	}
 
 	public function check($id_job_sheet = NULL,$id_job_list = NULL){
+		$nav['sum_notifikasi'] = $this->notifikasi_m->getUnread();
+		$nav['notifikasi'] = $this->notifikasi_m->getSample();
 		if($id_job_sheet != NULL && $id_job_list != NULL){
 			$this->db->select('')->from('t_job_list')
 					->join('t_job_sheet', 't_job_list.id_job_sheet = t_job_sheet.id_job_sheet')
@@ -151,6 +155,7 @@ class Joblist extends Company_Controller {
 	}
 
 	public function uncheck($id_job_sheet = NULL,$id_job_list = NULL){
+
 		if($id_job_sheet != NULL && $id_job_list != NULL){
 			$this->db->select('')->from('t_job_list')
 					->join('t_job_sheet', 't_job_list.id_job_sheet = t_job_sheet.id_job_sheet')
@@ -186,7 +191,8 @@ class Joblist extends Company_Controller {
 
 
 	public function edit($id_job_sheet = NULL,$id_job_list = NULL)
-	{
+	{	$nav['sum_notifikasi'] = $this->notifikasi_m->getUnread();
+		$nav['notifikasi'] = $this->notifikasi_m->getSample();
 		$side['info'] = $this->infocompany;
 		$nav['info'] = $this->infocompany;
 		if($id_job_sheet != NULL && $id_job_list != NULL){

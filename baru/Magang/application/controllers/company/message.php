@@ -8,6 +8,7 @@ class Message extends Company_Controller {
 		parent::__construct();
 		$this->load->model('jobsheet_m');
 		$this->load->model('message_m');
+
 	}
 
 	public $message_rules = array(
@@ -20,6 +21,8 @@ class Message extends Company_Controller {
 
 	public function index($id_pemilik_pesan=NULL)
 	{
+		$nav['sum_notifikasi'] = $this->notifikasi_m->getUnread();
+		$nav['notifikasi'] = $this->notifikasi_m->getSample();
 		$side['info'] = $this->infocompany;
 		$nav['info'] = $this->infocompany;
 		$nav['halaman'] = 'message';

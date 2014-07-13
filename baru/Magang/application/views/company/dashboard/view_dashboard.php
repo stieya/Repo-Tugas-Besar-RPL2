@@ -29,7 +29,7 @@
 								</div>
 							</div>
 							<div class="box-content">
-								<table class="table table-hover">
+								<table class="tablohhe table-hover">
 									<tbody>
 										<tr>
 											<td>Nama Perusahaan </td>

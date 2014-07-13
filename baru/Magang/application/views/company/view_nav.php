@@ -1,6 +1,6 @@
 <div id="navigation">
 		<div class="container-fluid">
-			<a href="<?php echo site_url(); ?>#" id="brand"><span style="background-color:#f1c40f;  padding:8px 8px; color:#fff;">Yuk</span> <span style="background-color:#7f8c8d; padding:8px 8px; color:#fff; margin-left:0px;">magang.com</span></a>
+			<a href="<?php echo site_url(); ?>#" id="brand"><span style="background-color:#f1c40f;  padding:8px 8px; color:#fff;">Mari</span> <span style="background-color:#7f8c8d; padding:8px 8px; color:#fff; margin-left:0px;">magang.com</span></a>
 			<ul class='main-nav'>
 				<?php if($halaman == 'dashboard') : ?>
 				<li class='active'>
@@ -76,24 +76,44 @@
 				</li>
 			</ul>
 			<div class="user">
-				<div class="dropdown asdf">
-					<a href="<?php echo site_url(); ?>#" class='dropdown-toggle' data-toggle="dropdown"><?php echo $this->session->userdata['email']; ?> 
-						<?php if(!is_null($info->perusahaan->foto_user)) : ?>
-						<img src="<?php echo base_url().'images/company/'.$this->session->userdata('id_user').'/'.$info->perusahaan->foto_user; ?>" alt="" style="width:27px;height:27px;">
-						<?php else : ?>
-						<img src="<?php echo base_url(); ?>img/no_image.png" alt="" style="width:27px;height:27px;">
-						<?php  endif; ?>
-						
-					</a>
-					<ul class="dropdown-menu pull-right">
-						<li>
-							<a href="<?php echo site_url(); ?>company/profile/edit">Edit profile</a>
-						</li>
-						<li>
-							<a href="<?php echo site_url(); ?>company/logout">Sign out</a>
-						</li>
-					</ul>
-				</div>
+				<ul class="icon-nav">
+				
+					<li class='dropdown'>
+						<a href="#" class='dropdown-toggle' data-toggle="dropdown"><i class="icon-bullhorn"></i><span class="label label-lightred"><?php echo count($sum_notifikasi); ?></span></a>
+						<ul class="dropdown-menu pull-right message-ul">
+							<?php foreach($notifikasi as $res) : ?>
+							<li>
+								<a href="#">
+									<span class="label"><i class="icon-plus"></i></span> <?php echo $res->body; ?>
+								</a>
+							</li>
+							<?php endforeach; ?>
+							
+							<li>
+								<a href="components-messages.html" class='more-messages'>See All Notification <i class="icon-arrow-right"></i></a>
+							</li>
+						</ul>
+					</li>
+
+					<div class="dropdown asdf">
+						<a href="<?php echo site_url(); ?>#" class='dropdown-toggle' data-toggle="dropdown"><?php echo $this->session->userdata['email']; ?> 
+							<?php if(!is_null($info->perusahaan->foto_user)) : ?>
+							<img src="<?php echo base_url().'images/company/'.$this->session->userdata('id_user').'/'.$info->perusahaan->foto_user; ?>" alt="" style="width:27px;height:27px;">
+							<?php else : ?>
+							<img src="<?php echo base_url(); ?>img/no_image.png" alt="" style="width:27px;height:27px;">
+							<?php  endif; ?>
+							
+						</a>
+						<ul class="dropdown-menu pull-right">
+							<li>
+								<a href="<?php echo site_url(); ?>company/profile/edit">Edit profile</a>
+							</li>
+							<li>
+								<a href="<?php echo site_url(); ?>company/logout">Sign out</a>
+							</li>
+						</ul>
+					</div>
+				</ul>
 			</div>
 		</div>
 	</div>

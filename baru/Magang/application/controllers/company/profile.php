@@ -49,7 +49,8 @@ class Profile extends Company_Controller {
 
 	public function index($id_user = NULL)
 	{
-
+		$nav['sum_notifikasi'] = $this->notifikasi_m->getUnread();
+		$nav['notifikasi'] = $this->notifikasi_m->getSample();
 		$side['info'] = $this->infocompany;
 		$nav['info'] = $this->infocompany;
 		
@@ -97,6 +98,8 @@ class Profile extends Company_Controller {
 
 	public function edit()
 	{
+		$nav['sum_notifikasi'] = $this->notifikasi_m->getUnread();
+		$nav['notifikasi'] = $this->notifikasi_m->getSample();
 
 		$side['info'] = $this->infocompany;
 		$nav['info'] = $this->infocompany;

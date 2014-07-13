@@ -75,7 +75,8 @@ class Jobsheet extends Company_Controller {
 		$side['info'] = $this->infocompany;
 		$nav['info'] = $this->infocompany;
 		if($id_job_sheet == NULL && $id_job_list == NULL){
-
+			$nav['sum_notifikasi'] = $this->notifikasi_m->getUnread();
+			$nav['notifikasi'] = $this->notifikasi_m->getSample();
 			$nav['halaman'] = 'jobsheetlist';
 			$data['jobsheets'] = $this->jobsheet_m->getJobSheet();
 			$format = 'DATE_COOKIE';
@@ -89,7 +90,8 @@ class Jobsheet extends Company_Controller {
 
 		}
 		elseif($id_job_sheet != NULL && $id_job_list == NULL){
-			
+			$nav['sum_notifikasi'] = $this->notifikasi_m->getUnread();
+			$nav['notifikasi'] = $this->notifikasi_m->getSample();
 			$this->db->select()->from('t_job_sheet')
 								->where('id_job_sheet',$id_job_sheet);
 			$val = count($this->db->get()->row());
@@ -161,6 +163,8 @@ class Jobsheet extends Company_Controller {
 
 	public function newjobsheet()
 	{	
+		$nav['sum_notifikasi'] = $this->notifikasi_m->getUnread();
+		$nav['notifikasi'] = $this->notifikasi_m->getSample();
 		$nav['halaman'] = 'JobSheet';
 		$data['tanggal'] = date('Y:M:D');
 		$data['error'] = FALSE;
@@ -193,6 +197,8 @@ class Jobsheet extends Company_Controller {
 
 	public function edit($id_job_sheet = NULL)
 	{
+		$nav['sum_notifikasi'] = $this->notifikasi_m->getUnread();
+		$nav['notifikasi'] = $this->notifikasi_m->getSample();
 		if($id_job_sheet != NULL){
 			$side['info'] = $this->infocompany;
 			$nav['info'] = $this->infocompany;

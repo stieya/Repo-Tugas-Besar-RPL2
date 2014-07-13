@@ -11,6 +11,8 @@ class Dashboard extends Company_Controller {
 		$side['info'] = $this->infocompany;
 		$nav['info'] = $this->infocompany;
 		$nav['halaman'] = 'dashboard';
+		$nav['sum_notifikasi'] = $this->notifikasi_m->getUnread();
+		$nav['notifikasi'] = $this->notifikasi_m->getSample();
 		$data['perusahaan'] = $this->company_m->getInfo();
 		$format = 'DATE_COOKIE';
 			timezones('UP7');
