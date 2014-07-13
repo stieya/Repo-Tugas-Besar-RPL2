@@ -21,20 +21,16 @@
 								<table class="table table-hover">
 									<tbody>
 										<tr>
-											<td>Jumlah lembar kerja anda</td>
-											<td class='hidden-480'>1</td>
+											<td>Jumlah User</td>
+											<td class='hidden-480'><?php echo count($info->users); ?></td>
 										</tr>
 										<tr>
-											<td>Jumlah daftar kerja anda</td>
+											<td>Jumlah Pengunjung Hari Ini</td>
 											<td class='hidden-480'>2</td>
 										</tr>
 										<tr>
-											<td>Jumlah daftar kerja yang belum selesai</td>
+											<td>Jumlah Hits</td>
 											<td class='hidden-480'>3</td>
-										</tr>
-										<tr>
-											<td>Jumlah daftar kerja yang sudah selesai</td>
-											<td class='hidden-480'>4</td>
 										</tr>
 									</tbody>
 								</table>

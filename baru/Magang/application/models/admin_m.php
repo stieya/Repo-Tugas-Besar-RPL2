@@ -235,6 +235,90 @@ class Admin_m extends CI_Model
 		return $data;
 	}
 
+	public function getInfo(){
+
+		$this->db->select()->from('t_user');
+		$result1 = $this->db->get()->result();
+
+		//$this->db->select()->from()
+		$data  = new stdClass();
+		$data->users = $result1;
+
+		return $data;
+	}
+
+	public function getStudent(){
+		$this->db->select('
+				t_universitas.nama AS nama_universitas,
+				tanggal_masuk,t_student.nama AS nama_user,
+				block,status_user,t_student.id_user AS id_user
+				')
+						->from('t_student')
+						->join('t_user','t_user.id_user = t_student.id_user')
+						->join('t_universitas','t_student.id_universitas = t_universitas.id_universitas');
+
+		return $this->db->get()->result();						
+	}
+
+	public function blockStudent($id_user){
+		$data = array(
+			'block' => '1'
+			);
+		$this->db->where('id_user',$id_user);
+		if($this->db->update('t_user',$data)){
+			return TRUE;
+		}
+		else{
+			return FALSE;
+		}
+	}
+
+	public function unblockStudent($id_user){
+		$data = array(
+			'block' => '0'
+			);
+		$this->db->where('id_user',$id_user);
+		if($this->db->update('t_user',$data)){
+			return TRUE;
+		}
+		else{
+			return FALSE;
+		}
+	}
+
+	public function getCompany(){
+		$this->db->select('*')
+						->from('t_perusahaan')
+						->join('t_user','t_user.id_user = t_perusahaan.id_user');
+
+		return $this->db->get()->result();						
+	}
+
+	public function blockCompany($id_user){
+		$data = array(
+			'block' => '1'
+			);
+		$this->db->where('id_user',$id_user);
+		if($this->db->update('t_user',$data)){
+			return TRUE;
+		}
+		else{
+			return FALSE;
+		}
+	}
+
+	public function unblockCompany($id_user){
+		$data = array(
+			'block' => '0'
+			);
+		$this->db->where('id_user',$id_user);
+		if($this->db->update('t_user',$data)){
+			return TRUE;
+		}
+		else{
+			return FALSE;
+		}
+	}
 
 }
 

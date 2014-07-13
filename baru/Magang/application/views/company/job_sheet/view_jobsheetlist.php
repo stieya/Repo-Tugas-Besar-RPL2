@@ -75,7 +75,7 @@
 												<a href="<?php echo site_url('company/jobsheet/edit/').'/'.$jobsheet->id_job_sheet; ?>" class="btn btn-primary"><i class="icon-cog"></i></a>
 											</p>
 											<h6>
-												Durasi : 120 Hari
+												Durasi : <?php echo $jobsheet->durasi*30; ?> Hari
 											</h6>
 										</div>
 									</div>

@@ -9,6 +9,7 @@
 									<?php if($jobsheets->jobsheetdetail->status == "Ongoing") : ?>
 									<a href="<?php echo base_url().'company/jobsheet/finish/'.$jobsheets->jobsheetdetail->id_job_sheet;?>" class="btn btn-large "><i class="icon-check"> Selesai </i><?php ?></a>
 									<?php endif; ?>
+
 								</div>
 
 							</div>										
@@ -47,7 +48,7 @@
 
 
 														<a class="accordion-toggle <?php if($i==1) echo 'collapsed'; ?> " data-toggle="collapse" data-parent="#accordion2" href="#<?php echo $i; ?>">
-															<?php echo $list->head; ?>
+															#<?php echo $i; ?> <?php echo $list->head; ?>
 														</a>
 													</div>
 													<div id="<?php echo $i; ?>" class="accordion-body collapse in">
@@ -58,13 +59,13 @@
 																		<div class="box-title">
 																			<h3> Deskripsi Tugas </h3>
 																			<div class="actions">
-																				<a href="<?php echo site_url().'company/jobsheet/'.$jobsheets->jobsheetdetail->id_job_sheet.'/'.$list->id_job_list;?>" class="btn btn-large "><i class="icon-tasks"></i></a>
-																				<a href="<?php echo site_url().'company/joblist/hapus/'.$jobsheets->jobsheetdetail->id_job_sheet.'/'.$list->id_job_list;?>" class="btn btn-large "><i class="icon-trash"></i></a>
-																				<a href="<?php echo site_url().'company/joblist/edit/'.$jobsheets->jobsheetdetail->id_job_sheet.'/'.$list->id_job_list;?>" class="btn btn-large "><i class="icon-cog"></i></a>
+																				<a href="<?php echo site_url().'company/jobsheet/'.$jobsheets->jobsheetdetail->id_job_sheet.'/'.$list->id_job_list;?>" class="btn  "><i class="icon-tasks"></i> Detail</a>
+																				<a href="<?php echo site_url().'company/joblist/hapus/'.$jobsheets->jobsheetdetail->id_job_sheet.'/'.$list->id_job_list;?>" class="btn btn-danger"><i class="icon-trash"></i> Hapus </a>
+																				<a href="<?php echo site_url().'company/joblist/edit/'.$jobsheets->jobsheetdetail->id_job_sheet.'/'.$list->id_job_list;?>" class="btn btn-warning  "><i class="icon-cog"></i> Ubah</a>
 																				<?php if($list->status =='Finished') : ?>
-																				<a href="<?php echo site_url().'company/joblist/uncheck/'.$jobsheets->jobsheetdetail->id_job_sheet.'/'.$list->id_job_list;?>" class="btn btn-large "><i class="icon-check-empty"></i></a>
+																				<a href="<?php echo site_url().'company/joblist/uncheck/'.$jobsheets->jobsheetdetail->id_job_sheet.'/'.$list->id_job_list;?>" class="btn  "><i class="icon-check-empty"></i> Belum Selesai</a>
 																				<?php else : ?>
-																				<a href="<?php echo site_url().'company/joblist/check/'.$jobsheets->jobsheetdetail->id_job_sheet.'/'.$list->id_job_list;?>" class="btn btn-large "><i class="icon-check"></i></a>
+																				<a href="<?php echo site_url().'company/joblist/check/'.$jobsheets->jobsheetdetail->id_job_sheet.'/'.$list->id_job_list;?>" class="btn "><i class="icon-check"></i> Selesai</a>
 																				<?php endif; ?>
 
 																			</div>
