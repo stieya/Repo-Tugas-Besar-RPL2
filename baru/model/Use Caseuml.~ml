@@ -38242,7 +38242,7 @@
 <XPD:REF name="Context">S297rTW6Ukaz1D76pt7K6wAA</XPD:REF>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceDiagram" guid="9GNk+leUQEydDMYcjo1oDgAA">
-<XPD:ATTR name="Name" type="string">SequenceDiagram1</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Ubah Jurusan Sequence</XPD:ATTR>
 <XPD:REF name="DiagramOwner">JAA9UsiLmEiemzi6OTdmLQAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLSequenceDiagramView" guid="vYtdRcqdEUmGmrA10OS4TgAA">
 <XPD:REF name="Diagram">9GNk+leUQEydDMYcjo1oDgAA</XPD:REF>
