@@ -1,0 +1,52 @@
+#navigation{
+	background: #2980b9;
+}
+
+#navigation #brand{
+	background: none;
+	margin-left: -40px;
+	margin-top: 10.6px;
+}
+
+.dropdown-menu>li>a:hover{
+	background: #2c3e50;
+}
+
+
+.joblist .accordion-heading.finished{
+
+	background: #56af45 !important;
+}
+
+.joblist .accordion-heading.finished a {
+
+	color: #fff;
+
+}
+
+.joblist .accordion-heading.unfinished{
+
+	background: #f8a31f !important;
+}
+
+.joblist .accordion-heading.unfinished a {
+
+	color: #fff;
+
+}
+
+.joblist .accordion-heading a:hover {
+	text-decoration: none;
+}
+
+.joblist .accordion-heading.finished a:hover {
+	text-decoration: none;
+}
+
+.subnav_menu .control-group{
+	width: 100%;
+}
+
+#left .subnav .subnav-menu>li>.control-group{
+	margin-left: 30px;
+}
